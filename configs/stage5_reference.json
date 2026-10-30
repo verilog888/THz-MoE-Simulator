@@ -1,0 +1,59 @@
+{
+  "name": "Stage 5 uncalibrated paper dimensions; 8-token base for representative sensitivity scans",
+  "model": {
+    "d_model": 7168,
+    "d_ff": 2048,
+    "num_experts": 256,
+    "top_k": 8
+  },
+  "topology": {
+    "num_dies": 16
+  },
+  "compute": {
+    "compute_flops_per_s": 10000000000000,
+    "memory_bytes_per_s": 1000000000000,
+    "weight_reuse_tokens": 4
+  },
+  "phy": {
+    "total_bandwidth_hz": 32000000000,
+    "num_subcarriers": 64,
+    "spectral_efficiency": 2,
+    "phy_efficiency": 0.8,
+    "setup_s": 1e-07
+  },
+  "timing": {
+    "base_to_source_s": 0,
+    "gate_s": 0,
+    "source_combine_s": 2e-07,
+    "source_to_base_s": 1e-07
+  },
+  "workload": {
+    "num_tokens": 8,
+    "seed": 42,
+    "source_die": 0,
+    "source_policy": "round_robin",
+    "routing": "zipf",
+    "zipf_skew": 1.5
+  },
+  "batching": {
+    "window_s": 5e-06,
+    "max_tokens": 16
+  },
+  "combine": {
+    "local_combine": true,
+    "weight_s": 2e-08,
+    "local_reduce_s": 5e-08,
+    "resource_model": "per_die_fifo",
+    "verification_seed": 7
+  },
+  "scheduling": {
+    "scheme": "Proposed",
+    "epoch_s": 1e-05,
+    "alpha": 1,
+    "beta": 1,
+    "gamma": 1,
+    "delta": 1,
+    "q_ref_bytes": 14336,
+    "w_ref_s": 1e-05
+  }
+}

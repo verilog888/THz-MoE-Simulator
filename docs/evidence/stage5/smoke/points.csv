@@ -1,0 +1,6 @@
+point_id,config_sha256,coordinates_json
+p_0fb928e2e14a9677,03dc6dcb7a84a9c6ff524532f4b2c559ba3997b770cbbb23664266ae512af7b5,"{""phy.num_subcarriers"": 2, ""workload.num_tokens"": 4}"
+p_95d484a773173373,110a4e8fb7c58ecb227b2f43e2fedb8213148c539927d58b8a7b7469d7ae605c,"{""phy.num_subcarriers"": 4, ""workload.num_tokens"": 4}"
+p_39f4c810dbcf6775,944e025d0602df0ae47d71a6136c58c41279724df81bb7eee537e6e3d5151293,"{""phy.num_subcarriers"": 8, ""workload.num_tokens"": 4}"
+p_c894e3c3598b3e9f,fe219e6aff76d78645fb833b2d8529a68a55ce4a3d047aa6ca3cc49018b1ee46,"{""phy.num_subcarriers"": 4, ""workload.num_tokens"": 1}"
+p_5a3924e3547c1ea7,6609f99977f256d7e6042fe0e0ace448af499473101f1166a4ae89bc871e250b,"{""phy.num_subcarriers"": 4, ""workload.num_tokens"": 8}"

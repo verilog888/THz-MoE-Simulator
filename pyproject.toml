@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vdie-moe-sim"
+version = "0.5.0"
+description = "Staged, auditable discrete-event reference model for V-Die MoE"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["numpy==2.3.5", "pandas==2.2.3", "matplotlib==3.10.8"]
+
+[project.scripts]
+vdie-moe-sim = "vdie_moe_sim.main:main"
+
+[tool.setuptools.packages.find]
+include = ["vdie_moe_sim*"]

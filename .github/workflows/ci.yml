@@ -1,0 +1,31 @@
+name: Simulator validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MPLCONFIGDIR: ${{ github.workspace }}/.mplconfig
+      XDG_CACHE_HOME: ${{ github.workspace }}/.cache
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install locked dependencies and simulator
+        run: bash scripts/setup_env.sh
+      - name: Run all tests and repeat the small sweep with offline audits
+        run: bash scripts/reproduce_stage5.sh smoke
+      - name: Build the distributable wheel
+        run: .venv/bin/python -m pip wheel --no-deps --no-build-isolation --wheel-dir dist .

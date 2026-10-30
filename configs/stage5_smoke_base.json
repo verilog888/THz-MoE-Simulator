@@ -1,0 +1,57 @@
+{
+  "name": "Stage 5 small validation fixture; not hardware performance parameters",
+  "model": {
+    "d_model": 8,
+    "d_ff": 4,
+    "num_experts": 8,
+    "top_k": 2
+  },
+  "topology": {
+    "num_dies": 4
+  },
+  "compute": {
+    "compute_flops_per_s": 1000000000.0,
+    "memory_bytes_per_s": 100000000.0,
+    "weight_reuse_tokens": 2
+  },
+  "phy": {
+    "total_bandwidth_hz": 64000000.0,
+    "num_subcarriers": 4,
+    "spectral_efficiency": 2,
+    "phy_efficiency": 0.5,
+    "setup_s": 2e-07
+  },
+  "timing": {
+    "base_to_source_s": 1e-07,
+    "gate_s": 1e-07,
+    "source_combine_s": 2e-07,
+    "source_to_base_s": 1e-07
+  },
+  "workload": {
+    "num_tokens": 4,
+    "seed": 19,
+    "source_die": 0,
+    "source_policy": "round_robin",
+    "routing": "uniform"
+  },
+  "batching": {
+    "window_s": 1e-06,
+    "max_tokens": 4
+  },
+  "combine": {
+    "local_combine": true,
+    "weight_s": 2e-08,
+    "local_reduce_s": 5e-08,
+    "verification_seed": 7
+  },
+  "scheduling": {
+    "scheme": "Proposed",
+    "epoch_s": 1e-06,
+    "q_ref_bytes": 16,
+    "w_ref_s": 1e-06,
+    "alpha": 1,
+    "beta": 1,
+    "gamma": 1,
+    "delta": 1
+  }
+}

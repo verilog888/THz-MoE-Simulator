@@ -1,0 +1,15 @@
+{
+  "aggregate_rows": 168,
+  "checks": [
+    "all artifact checksums",
+    "offline CSV/NPY audits",
+    "same per-point budget/resources/trace",
+    "numerical equivalence",
+    "cross-point route consistency",
+    "paired statistics recomputed from runs"
+  ],
+  "matched_seed_groups": 20,
+  "parameter_points": 4,
+  "simulation_runs": 60,
+  "status": "passed"
+}

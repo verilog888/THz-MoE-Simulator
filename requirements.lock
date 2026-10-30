@@ -1,0 +1,17 @@
+# Exact tested dependency set, CPython 3.12, Linux x86_64.
+# Install with: python -m pip install -r requirements.lock
+contourpy==1.4.0
+cycler==0.12.1
+fonttools==4.68.0
+kiwisolver==1.5.1
+matplotlib==3.10.8
+numpy==2.3.5
+packaging==26.3
+pandas==2.2.3
+pillow==13.0.0
+pyparsing==3.3.3
+python-dateutil==3.0.0
+pytz==2026.6
+setuptools==84.0.0
+six==1.17.0
+tzdata==2026.6

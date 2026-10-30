@@ -1,0 +1,5 @@
+point_id,config_sha256,coordinates_json
+p_ec9216c7170343f2,abfb921d8dca17a431a94c1fcb9b4facee11f9203db666b63512c6aff7255e07,"{""ablation.broadcast"": false, ""ablation.local_combine"": false}"
+p_3a5272da6019cf38,37040cf6d49baafe1f33680bcd5cbbbd4cb27e87e3c797239e56d1c02afedad7,"{""ablation.broadcast"": false, ""ablation.local_combine"": true}"
+p_af2f0a255576e06e,5d92e4fbf5d651417a8d29e2b2c10d1a92b34462da4f91d48aa3b29262328aaa,"{""ablation.broadcast"": true, ""ablation.local_combine"": false}"
+p_052a6b48b030ecdf,8dcfd30016a06c3e9528804dc5191ea093d8c57407755037938e31aabe1ce02c,"{""ablation.broadcast"": true, ""ablation.local_combine"": true}"

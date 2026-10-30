@@ -1,0 +1,69 @@
+{
+  "original_report_sha256": "caf80beff28d5f2c260fe5f1ac52b98badb0d3edf28ed15db4fe8367620ba91b",
+  "original_run_directory": "stage5-TF8NCJ",
+  "scope": "Retained summary only; regenerate full per-run artifacts with scripts/reproduce_stage5.sh.",
+  "suites": {
+    "ablation": {
+      "identical_file_pairs": 1092,
+      "offline_audit": {
+        "aggregate_rows": 168,
+        "checks": [
+          "all artifact checksums",
+          "offline CSV/NPY audits",
+          "same per-point budget/resources/trace",
+          "numerical equivalence",
+          "cross-point route consistency",
+          "paired statistics recomputed from runs"
+        ],
+        "matched_seed_groups": 20,
+        "parameter_points": 4,
+        "simulation_runs": 60,
+        "status": "passed"
+      },
+      "repeats": 2,
+      "runs_per_repeat": 60
+    },
+    "paper_sample": {
+      "identical_file_pairs": 8128,
+      "offline_audit": {
+        "aggregate_rows": 1260,
+        "checks": [
+          "all artifact checksums",
+          "offline CSV/NPY audits",
+          "same per-point budget/resources/trace",
+          "numerical equivalence",
+          "cross-point route consistency",
+          "paired statistics recomputed from runs"
+        ],
+        "matched_seed_groups": 90,
+        "parameter_points": 18,
+        "simulation_runs": 450,
+        "status": "passed"
+      },
+      "repeats": 2,
+      "runs_per_repeat": 450
+    },
+    "smoke": {
+      "identical_file_pairs": 2266,
+      "offline_audit": {
+        "aggregate_rows": 350,
+        "checks": [
+          "all artifact checksums",
+          "offline CSV/NPY audits",
+          "same per-point budget/resources/trace",
+          "numerical equivalence",
+          "cross-point route consistency",
+          "paired statistics recomputed from runs"
+        ],
+        "matched_seed_groups": 25,
+        "parameter_points": 5,
+        "simulation_runs": 125,
+        "status": "passed"
+      },
+      "repeats": 2,
+      "runs_per_repeat": 125
+    }
+  },
+  "total_identical_file_pairs": 11486,
+  "total_simulations": 1270
+}

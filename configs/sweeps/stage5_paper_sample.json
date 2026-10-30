@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "mode": "one_factor",
+  "study": "five_scheme",
+  "seeds": [
+    11,
+    23,
+    37,
+    51,
+    71
+  ],
+  "statistics": {
+    "bootstrap_resamples": 2000,
+    "confidence": 0.95,
+    "seed": 1729
+  },
+  "timelines": "representative",
+  "max_runs": 10000,
+  "name": "Representative PDF sensitivity values at paper model dimensions",
+  "base_config": "../stage5_reference.json",
+  "axes": {
+    "workload.num_tokens": [
+      1,
+      8,
+      32
+    ],
+    "topology.num_dies": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "model.top_k": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "phy.num_subcarriers": [
+      16,
+      64,
+      256
+    ],
+    "phy.total_bandwidth_hz": [
+      16000000000.0,
+      32000000000.0,
+      64000000000.0
+    ],
+    "phy.spectral_efficiency": [
+      1,
+      2,
+      4
+    ],
+    "workload.zipf_skew": [
+      0,
+      1.5,
+      2
+    ],
+    "model.activation_precision": [
+      "fp8",
+      "bf16"
+    ]
+  }
+}
