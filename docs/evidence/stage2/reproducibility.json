@@ -1,0 +1,66 @@
+{
+  "batching": {
+    "identical_files": [
+      "batches.csv",
+      "compute_utilization.csv",
+      "events.csv",
+      "flows.csv",
+      "intervals.csv",
+      "manifest.json",
+      "requests.csv",
+      "routing_trace.json",
+      "summary.csv",
+      "timeline.png",
+      "tokens.csv"
+    ],
+    "repeats": 2
+  },
+  "tiny": {
+    "identical_files": [
+      "batches.csv",
+      "compute_utilization.csv",
+      "events.csv",
+      "flows.csv",
+      "intervals.csv",
+      "manifest.json",
+      "requests.csv",
+      "routing_trace.json",
+      "summary.csv",
+      "timeline.png",
+      "tokens.csv"
+    ],
+    "repeats": 2
+  },
+  "trace": {
+    "identical_files": [
+      "batches.csv",
+      "compute_utilization.csv",
+      "events.csv",
+      "flows.csv",
+      "intervals.csv",
+      "manifest.json",
+      "requests.csv",
+      "routing_trace.json",
+      "summary.csv",
+      "timeline.png",
+      "tokens.csv"
+    ],
+    "repeats": 2
+  },
+  "zipf": {
+    "identical_files": [
+      "batches.csv",
+      "compute_utilization.csv",
+      "events.csv",
+      "flows.csv",
+      "intervals.csv",
+      "manifest.json",
+      "requests.csv",
+      "routing_trace.json",
+      "summary.csv",
+      "timeline.png",
+      "tokens.csv"
+    ],
+    "repeats": 2
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "assumptions": [
+    {
+      "id": "A01",
+      "model": "routed experts only; shared expert excluded",
+      "status": "user_accepted_scope_not_hardware_validation"
+    },
+    {
+      "id": "A04",
+      "model": "compute, memory bandwidth, PHY efficiency and setup are sensitivity inputs",
+      "status": "uncalibrated"
+    },
+    {
+      "id": "A06",
+      "model": "ideal multiple TX/RX per Die on globally disjoint subcarriers; no spatial reuse",
+      "status": "user_selected_not_exercised"
+    },
+    {
+      "id": "A08",
+      "model": "setup reserves spectrum; header/FEC/guard represented only by PHY efficiency",
+      "status": "model_convention"
+    },
+    {
+      "id": "A05",
+      "model": "half-open per-expert batch windows with early cap; closed-batch FIFO per shared Die; no preemption",
+      "status": "user_accepted_reference_not_hardware_validation"
+    },
+    {
+      "id": "A07",
+      "model": "weighted sampling without replacement; synthetic equal weights; trace weights retained unchanged; local inputs bypass RF",
+      "status": "explicit_workload"
+    },
+    {
+      "id": "A02",
+      "model": "independent fixed Base/Gate delays outside THz/expert/Combine resources",
+      "status": "uncalibrated_reference"
+    },
+    {
+      "details": "weight/local/source reductions share one FIFO unit per Die in default mode, separate from expert compute; delays configured",
+      "id": "A03",
+      "model": "per_die_fifo",
+      "status": "user_selected_reference_not_hardware_validation"
+    },
+    {
+      "id": "A13",
+      "model": "window earliest arrival to final Base completion; Dispatch and Return share one RF budget",
+      "status": "end_to_end_metric"
+    },
+    {
+      "id": "A14",
+      "model": "float64 weighted vectors; activation precision affects byte counts only; no real FFN or quantization",
+      "status": "synthetic_semantic_check"
+    }
+  ],
+  "config": {
+    "ablation": null,
+    "batching": {
+      "max_tokens": 16,
+      "window_s": 5e-06
+    },
+    "combine": {
+      "local_combine": true,
+      "local_reduce_s": 5e-08,
+      "resource_model": "per_die_fifo",
+      "verification_seed": 7,
+      "weight_s": 2e-08
+    },
+    "compute": {
+      "compute_flops_per_s": 10000000000000,
+      "memory_bytes_per_s": 1000000000000,
+      "weight_reuse_tokens": 4
+    },
+    "model": {
+      "activation_precision": "bf16",
+      "d_ff": 2048,
+      "d_model": 7168,
+      "num_experts": 256,
+      "top_k": 8,
+      "weight_precision": "fp8"
+    },
+    "name": "Uncalibrated full routed-expert path: 128 tokens, Top-8, shared RF FIFO",
+    "phy": {
+      "num_subcarriers": 64,
+      "phy_efficiency": 0.8,
+      "setup_s": 1e-07,
+      "spectral_efficiency": 2,
+      "total_bandwidth_hz": 32000000000
+    },
+    "scheduling": {
+      "alpha": 1.0,
+      "beta": 1.0,
+      "delta": 1.0,
+      "epoch_s": 1e-05,
+      "gamma": 1.0,
+      "max_events": 1000000,
+      "q_ref_bytes": 14336.0,
+      "scheme": "C",
+      "w_ref_s": 1e-05
+    },
+    "schema_version": 1,
+    "timing": {
+      "base_to_source_s": 0,
+      "gate_s": 0,
+      "source_combine_s": 2e-07,
+      "source_to_base_s": 1e-07
+    },
+    "topology": {
+      "num_dies": 16
+    },
+    "workload": {
+      "arrival_s": 0.0,
+      "expert_ids": [],
+      "gate_weights": [],
+      "interarrival_s": 0.0,
+      "num_tokens": 128,
+      "routing": "zipf",
+      "seed": 42,
+      "source_die": 0,
+      "source_policy": "round_robin",
+      "trace_file": null,
+      "zipf_skew": 1.5
+    }
+  },
+  "config_sha256": "0a06c676463d827ea2c8bdf432246ae193d636dd8ae1780f2f363718ea4d8512",
+  "dependencies": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "endpoint": "all_tokens_returned_to_base",
+  "input_trace_sha256": null,
+  "model_status": "uncalibrated; synthetic float64 weighted-combine verification",
+  "not_implemented": [
+    "real FFN",
+    "BF16/FP8 numerical quantization",
+    "shared expert",
+    "static OFDMA",
+    "CA-OFDMA",
+    "five-scheme comparison",
+    "parameter sweeps"
+  ],
+  "numerical_verification": {
+    "atol": 1e-10,
+    "dimension": 7168,
+    "dtype": "float64",
+    "generator": "assignment-local NumPy SeedSequence uniform(-1,1)",
+    "max_abs_error": 2.220446049250313e-16,
+    "output_row_mapping": "output_validation.csv",
+    "rtol": 1e-10,
+    "seed": 7
+  },
+  "python_version": "3.12.14",
+  "schema_version": 1,
+  "simulator_version": "0.5.0",
+  "source_sha256": "f1e1a925f4fd9e6209527e574682da006e3c1d5e59f5d3bce6c02f0645c68876",
+  "specification_sha256": "072f0287b6b79494564d0190f3143b348642f3328aaf9d5168eb385b29f40fdf",
+  "stage": "stage3_end_to_end",
+  "workload_sha256": "9a2ac95c51a90468c76e342dab0125608df91d02553c3c982ff08a02d584f87e"
+}

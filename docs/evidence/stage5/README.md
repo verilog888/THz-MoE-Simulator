@@ -1,44 +1,61 @@
-# 第五阶段验证证据摘录
+# 第五阶段结果、图表和验证证据
 
-来自已完成的本地运行 `results/stage5-TF8NCJ/`，包版本 0.5.0。原始记录为 179 项测试通过；smoke、ablation、paper_sample 各运行两遍，共 1,270 次仿真、11,486 对逐字节一致文件，六次离线审计全部通过。解释与限制见 [验证报告](../../VALIDATION_STAGE5.md)。
+历史验收来自 `results/stage5-TF8NCJ/`；2026-11-02 在恢复后的环境按相同代码、锁定依赖、配置和种子重建。历史测试日志仍为 `tests.log`；本次日志为 [rebuild_tests.log](rebuild_tests.log)，完整重复性清单为 [rebuild_reproducibility.json](rebuild_reproducibility.json)。原始指标、配对/统计 CSV 和扫描 manifest 共 21 个历史文件，与本次重建逐字节一致。
 
-## 保留内容
+[结论报告](../../RESULTS.md) · [全部阶段](../README.md) · [数据包与解压审计](../archives/README.md) · [发布校验](../archives/publication_validation.json)
 
-- `tests.log`：原始完整测试日志。
-- `*.audit.json`：两遍、三套扫描的离线审计结果。
-- `reproducibility.summary.json`：完整复现报告的计数摘要及原报告 SHA-256；省略逐文件比较清单。
-- `smoke/`、`ablation/`、`paper_sample/`：第一遍原样复制的原始指标、配对结果、统计汇总、共同预算检查、参数点/图坐标和扫描 manifest。
-- `plots/`：带宽扫描、独立开关消融的 PNG/SVG，以及 FP8 参数点、seed=11、Proposed 的通信/计算时间线。
-- `paper_full.preview.json`：完整 PDF 单因素计划预览，725 次仿真；该计划尚未实际全部执行。
-- `checksums.json`：保留数据文件的 SHA-256 和原始相对路径；`original_path: null` 表示由原报告提取的摘要。
+## 参数扫描图
 
-约 741 MB 的完整逐事件、逐流、NPY 输出及两遍所有图表保留在原环境，不纳入 Git。本目录是可携带的历史证据摘录，缺少完整 `runs/`，不能直接用 `--audit --out` 执行全量离线审计。应先在仓库根目录重现：
+每张图包含层延迟、吞吐、p95/p99、THz/compute 利用率、PEPD、BWwaste 和配对加速比。置信带为有限路由种子的探索性统计；各点内五方案使用同一总 THz 带宽预算。
 
-```bash
-bash scripts/setup_env.sh
-bash scripts/reproduce_stage5.sh
-```
+| 扫描 | PNG | SVG | 数据 |
+|---|---|---|---|
+| token 数 | [PNG](plots/workload_num_tokens.png) | [SVG](plots/workload_num_tokens.svg) | [统计](paper_sample/aggregate.csv) / [坐标](paper_sample/views.csv) |
+| Die 数 | [PNG](plots/topology_num_dies.png) | [SVG](plots/topology_num_dies.svg) | [统计](paper_sample/aggregate.csv) / [坐标](paper_sample/views.csv) |
+| Top-k | [PNG](plots/model_top_k.png) | [SVG](plots/model_top_k.svg) | [统计](paper_sample/aggregate.csv) / [坐标](paper_sample/views.csv) |
+| 子载波数 | [PNG](plots/phy_num_subcarriers.png) | [SVG](plots/phy_num_subcarriers.svg) | [统计](paper_sample/aggregate.csv) / [坐标](paper_sample/views.csv) |
+| 总 THz 带宽 | [PNG](plots/phy_total_bandwidth_hz.png) | [SVG](plots/phy_total_bandwidth_hz.svg) | [统计](paper_sample/aggregate.csv) / [坐标](paper_sample/views.csv) |
+| 频谱效率 | [PNG](plots/phy_spectral_efficiency.png) | [SVG](plots/phy_spectral_efficiency.svg) | [统计](paper_sample/aggregate.csv) / [坐标](paper_sample/views.csv) |
+| Zipf 偏斜 | [PNG](plots/workload_zipf_skew.png) | [SVG](plots/workload_zipf_skew.svg) | [统计](paper_sample/aggregate.csv) / [坐标](paper_sample/views.csv) |
+| activation 字节精度 | [PNG](plots/model_activation_precision.png) | [SVG](plots/model_activation_precision.svg) | [统计](paper_sample/aggregate.csv) / [坐标](paper_sample/views.csv) |
+| 广播 / Local Combine 四组合 | [PNG](plots/grid.png) | [SVG](plots/grid.svg) | [统计](ablation/aggregate.csv) / [坐标](ablation/views.csv) |
+| 小模型 token 数 | [PNG](plots/smoke/workload_num_tokens.png) | [SVG](plots/smoke/workload_num_tokens.svg) | [统计](smoke/aggregate.csv) / [坐标](smoke/views.csv) |
+| 小模型子载波数 | [PNG](plots/smoke/phy_num_subcarriers.png) | [SVG](plots/smoke/phy_num_subcarriers.svg) | [统计](smoke/aggregate.csv) / [坐标](smoke/views.csv) |
 
-脚本创建新的 `results/stage5-*/` 并自动执行两遍实验、完整离线审计及文件比较。目录随机后缀不参与复现比较；统计和源码指纹必须一致。历史证据固定保留，不随代码自动更新。
+## 通信与计算时间线
 
-## 校验摘录完整性
+时间线取每个计划的第一个参数点、seed=11。paper_sample 的首点为 FP8、8 tokens；ablation 首点为 broadcast off / Local Combine off；smoke 使用小模型参考配置。各图中的子载波和计算/Combine 区间来自实际事件。
 
-在仓库根目录执行：
+| 计划 | 时间线 |
+|---|---|
+| smoke | [A](timelines/smoke/A.png) · [B](timelines/smoke/B.png) · [C](timelines/smoke/C.png) · [D](timelines/smoke/D.png) · [Proposed](timelines/smoke/Proposed.png) |
+| ablation | [C](timelines/ablation/C.png) · [D](timelines/ablation/D.png) · [Proposed](timelines/ablation/Proposed.png) |
+| paper_sample | [A](timelines/paper_sample/A.png) · [B](timelines/paper_sample/B.png) · [C](timelines/paper_sample/C.png) · [D](timelines/paper_sample/D.png) · [Proposed](timelines/paper_sample/Proposed.png) |
+
+## 数据及校验
+
+- `smoke/`、`ablation/`、`paper_sample/` 保存逐次指标、同 seed 配对数据、统计汇总、共同预算检查、参数点/图坐标和 manifest。
+- `*.audit.json` 为历史六次离线审计记录；本次解压包审计另存于发布校验 JSON。
+- `reproducibility.summary.json` 保留历史复现计数和原报告摘要。
+- `paper_full.preview.json` 只证明完整 725 次计划通过预检，不能当作已执行实验。
+- `checksums.json` 记录本目录数据文件的 SHA-256；`original_path` 为相应运行根目录内的路径。
+
+完整首遍 `runs/` 已放入三个压缩包，包含 CSV/JSON/NPY、检查点和原始图片。第二遍与首遍逐字节相同，保留比较清单，省略重复上传。直接对本目录运行 `--audit` 不成立，应按[下载说明](../archives/README.md)先解压完整包。
+
+在仓库根目录校验可浏览数据文件：
 
 ```bash
 .venv/bin/python - <<'PY'
 import hashlib
 import json
 from pathlib import Path
-
 root = Path('docs/evidence/stage5')
 records = json.loads((root / 'checksums.json').read_text())
 for name, record in records.items():
-    actual = hashlib.sha256((root / name).read_bytes()).hexdigest()
-    if actual != record['sha256']:
+    if hashlib.sha256((root / name).read_bytes()).hexdigest() != record['sha256']:
         raise SystemExit(f'checksum mismatch: {name}')
 print(f'{len(records)} evidence files verified')
 PY
 ```
 
-此校验只检测归档文件变化。仿真正确性依据公式手算、因果/资源/数值测试以及原完整明细的离线重算；文件摘要或可重复运行本身不能证明模型正确。
+文件摘要只检测文件变化；仿真正确性另由公式手算、因果/资源/数值测试和完整明细的离线重算支撑。

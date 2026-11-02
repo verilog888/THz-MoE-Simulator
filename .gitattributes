@@ -2,4 +2,5 @@
 *.png binary
 *.npy binary
 # Keep archived Matplotlib SVG bytes unchanged, including generated whitespace.
-docs/evidence/stage5/plots/*.svg binary
+docs/evidence/**/*.svg binary
+*.xz binary

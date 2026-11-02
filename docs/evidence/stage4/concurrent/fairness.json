@@ -1,0 +1,14 @@
+{
+  "atol": 1e-10,
+  "controlled_config_sha256": "9b00f52d1a8727108674c90ffb7e7484852c37c14bfd00a68a1b837522ee45b1",
+  "controlled_differences": [
+    "scheduling.scheme",
+    "combine.local_combine"
+  ],
+  "numerically_equal": true,
+  "rtol": 1e-10,
+  "same_compute_and_timing": true,
+  "same_total_phy_budget": true,
+  "same_workload": true,
+  "workload_sha256": "6396ddf547600d7403e7b2823421dce2fe6b72eeff6e52178772c8e411200955"
+}

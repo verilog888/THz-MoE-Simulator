@@ -1,0 +1,100 @@
+{
+  "archives": {
+    "all_members_match_rebuilt_originals": true,
+    "bytes": 47939408,
+    "count": 7,
+    "member_files": 11986
+  },
+  "date": "2026-11-02",
+  "historical_stage5_files_byte_identical": [
+    "smoke/aggregate.csv",
+    "smoke/raw_results.csv",
+    "smoke/paired_results.csv",
+    "smoke/fairness.csv",
+    "smoke/points.csv",
+    "smoke/views.csv",
+    "smoke/sweep_manifest.json",
+    "ablation/aggregate.csv",
+    "ablation/raw_results.csv",
+    "ablation/paired_results.csv",
+    "ablation/fairness.csv",
+    "ablation/points.csv",
+    "ablation/views.csv",
+    "ablation/sweep_manifest.json",
+    "paper_sample/aggregate.csv",
+    "paper_sample/raw_results.csv",
+    "paper_sample/paired_results.csv",
+    "paper_sample/fairness.csv",
+    "paper_sample/points.csv",
+    "paper_sample/views.csv",
+    "paper_sample/sweep_manifest.json"
+  ],
+  "report_tables": {
+    "numeric_values_checked": 85,
+    "status": "passed"
+  },
+  "scope": "Archive round-trip and offline audits; hardware calibration and full 725-run plan remain unverified.",
+  "simulations": {
+    "archived_first_pass": 665,
+    "stage5_repeats": 1270,
+    "stages_1_to_4_repeats": 60,
+    "total": 1330
+  },
+  "source_commit": "49f501f972329c04c3928d442e576d09c2f4d578",
+  "source_sha256": "f1e1a925f4fd9e6209527e574682da006e3c1d5e59f5d3bce6c02f0645c68876",
+  "stage5_extracted_archive_audits": {
+    "ablation": {
+      "aggregate_rows": 168,
+      "checks": [
+        "all artifact checksums",
+        "offline CSV/NPY audits",
+        "same per-point budget/resources/trace",
+        "numerical equivalence",
+        "cross-point route consistency",
+        "paired statistics recomputed from runs"
+      ],
+      "matched_seed_groups": 20,
+      "parameter_points": 4,
+      "simulation_runs": 60,
+      "status": "passed"
+    },
+    "paper_sample": {
+      "aggregate_rows": 1260,
+      "checks": [
+        "all artifact checksums",
+        "offline CSV/NPY audits",
+        "same per-point budget/resources/trace",
+        "numerical equivalence",
+        "cross-point route consistency",
+        "paired statistics recomputed from runs"
+      ],
+      "matched_seed_groups": 90,
+      "parameter_points": 18,
+      "simulation_runs": 450,
+      "status": "passed"
+    },
+    "smoke": {
+      "aggregate_rows": 350,
+      "checks": [
+        "all artifact checksums",
+        "offline CSV/NPY audits",
+        "same per-point budget/resources/trace",
+        "numerical equivalence",
+        "cross-point route consistency",
+        "paired statistics recomputed from runs"
+      ],
+      "matched_seed_groups": 25,
+      "parameter_points": 5,
+      "simulation_runs": 125,
+      "status": "passed"
+    }
+  },
+  "status": "passed",
+  "timezone": "Asia/Shanghai",
+  "unit_tests": {
+    "failures": 0,
+    "log": "../stage5/rebuild_tests.log",
+    "passed": 179,
+    "skipped": 0
+  }
+}

@@ -7,6 +7,14 @@
 
 用户选择：使用未标定参考参数，暂不计 shared expert；同 Die 可在不同子载波上多流收发。采用固定窗口/cap batch、每 Die 一个共享 expert 计算资源，以及独立 FIFO Combine 单元。Dispatch 和 Return 共享全局频谱，回传会影响后续输入/计算时序。A 的 Base relay 两跳分别计入同一无线预算；每跳仅一次 setup，重分配额外开销设为 0。这些均是明确标注的参考假设。
 
+## 已运行的实验结果
+
+[结果与结论报告](docs/RESULTS.md)包含五方案对照、多种子参数扫描、独立消融和通信时间线；[图表与数据索引](docs/evidence/README.md)覆盖五个阶段的全部首遍图表。[完整结果下载](docs/evidence/archives/README.md)提供 CSV、JSON、NPY、图表和校验信息，解压后可直接审计第五阶段数据。
+
+在 8-token、32 GHz 参考基准下，Proposed 相对 TDMA C 的同种子加速比均值约为 **1.200**，与静态 OFDMA 接近；改为 64 GHz 时该值约为 **0.967**。结果不预设 CA 必然优于静态 OFDMA 或 TDMA。同一参数点的五方案使用相同的总 THz 带宽预算。
+
+![五方案带宽扫描；未标定参考模型](docs/evidence/stage5/plots/phy_total_bandwidth_hz.png)
+
 ## 安装
 
 实测环境：Linux x86_64、CPython 3.12.14。使用 NumPy、Pandas、Matplotlib 和标准库 `heapq` / `unittest`，无需 GPU、神经网络模型或外部服务。
@@ -31,10 +39,11 @@ source .venv/bin/activate
 | `configs/` | 各阶段手算/参考配置、trace 示例和扫描计划 |
 | `scripts/` | 环境安装及五阶段复现入口 |
 | `docs/` | 规格、假设、接口、阶段规则与验证记录 |
-| `docs/evidence/stage5/` | 已执行实验的测试日志、审计摘要、汇总 CSV 和示例图 |
+| `docs/evidence/` | 五阶段结果、图表、结论依据、测试及审计记录 |
+| `docs/evidence/archives/` | 首遍完整结果压缩包，含逐事件/逐流 CSV、JSON、NPY 和图片 |
 | `.github/workflows/ci.yml` | 安装锁定依赖，运行完整测试、小模型双遍扫描和 wheel 构建 |
 
-`results/`、`.venv/`、缓存和构建产物均忽略；完整逐事件明细通过复现脚本生成。仓库内的[验证证据摘录](docs/evidence/stage5/README.md)说明了保留范围和校验方式。
+`results/`、`.venv/`、缓存和构建产物均忽略；已完成运行的首遍完整明细归档在 `docs/evidence/archives/`，也可通过复现脚本重新生成。[数据说明](docs/evidence/stage5/README.md)解释了保留范围和校验方式。
 
 ## 运行与测试
 

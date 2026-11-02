@@ -1,6 +1,7 @@
 # 第四阶段验证记录
 
 本文件保留第四阶段的验收范围和证据；当前第五阶段扫描和完整回归记录见 [VALIDATION_STAGE5.md](VALIDATION_STAGE5.md)。
+2026-11-02 使用当前 0.5.0 代码重建的第四阶段完整数据和全部图表见[结果索引](evidence/stage4/README.md)，与下文历史 0.4.0 验收记录分别标识。
 
 环境：Linux x86_64、CPython 3.12.14；NumPy 2.3.5、Pandas 2.2.3、Matplotlib 3.10.8。包版本 0.4.0；依赖未增加，editable 安装和 `pip check` 通过。硬件参数和未给定规则的具体含义见 [STAGE4.md](STAGE4.md)。
 

@@ -66,7 +66,7 @@ bash scripts/reproduce_stage5.sh
 
 ## 本次实际产物
 
-本地最终成功目录为 `results/stage5-TF8NCJ/`，仓库内保留[可移植的证据摘录](evidence/stage5/README.md)。三套计划各完整运行两遍，共 **1,270 次仿真**，六次导出后离线审计全部通过。两遍共 **11,486 对文件逐字节一致**，包括 CSV、JSON、NPY、PNG 和 SVG；这项复现结论限于上述已锁定的软件环境。
+原环境最终成功目录为 `results/stage5-TF8NCJ/`，仓库内保留[可移植的验证记录](evidence/stage5/README.md)。三套计划各完整运行两遍，共 **1,270 次仿真**，六次导出后离线审计全部通过。两遍共 **11,486 对文件逐字节一致**，包括 CSV、JSON、NPY、PNG 和 SVG；这项复现结论限于上述已锁定的软件环境。
 
 | 计划 | 每遍仿真 | 相同文件对 | 每遍离线重算的统计行 |
 |---|---:|---:|---:|
@@ -74,7 +74,7 @@ bash scripts/reproduce_stage5.sh
 | ablation | 60 | 1,092 | 168 |
 | paper_sample | 450 | 8,128 | 1,260 |
 
-归档证据包括 [tests.log](evidence/stage5/tests.log)、[复现摘要](evidence/stage5/reproducibility.summary.json)和六个离线审计 JSON。六个扫描 manifest 的源码 SHA-256 均为 `f1e1a925f4fd9e6209527e574682da006e3c1d5e59f5d3bce6c02f0645c68876`；已核对与当前 Python 包源码一致。约 741 MB 的完整明细保留在本地，不纳入 Git；复现脚本可重新生成，包括完整 `reproducibility.json` 文件清单。
+历史归档包括 [tests.log](evidence/stage5/tests.log)、[复现摘要](evidence/stage5/reproducibility.summary.json)和六个离线审计 JSON。六个扫描 manifest 的源码 SHA-256 均为 `f1e1a925f4fd9e6209527e574682da006e3c1d5e59f5d3bce6c02f0645c68876`，与当前 Python 包源码一致。原环境未提交的完整明细未随环境切换保留；2026-11-02 使用相同代码、配置、依赖和种子重新生成，21 个已提交 CSV/manifest 与重建结果逐字节一致。重建后的首遍完整明细现已放入[可下载压缩包](evidence/archives/README.md)，来源和解压审计见[发布校验记录](evidence/archives/publication_validation.json)。
 
 实际查看了[带宽扫描图](evidence/stage5/plots/phy_total_bandwidth_hz.png)、[独立消融图](evidence/stage5/plots/grid.png)及[代表性 CA 通信/计算时间线](evidence/stage5/plots/timeline.png)：坐标、图例、单位与未标定/探索性区间标签可读。时间线展示真实占用的子载波及计算、Combine 区间。
 

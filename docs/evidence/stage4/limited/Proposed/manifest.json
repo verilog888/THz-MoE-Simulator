@@ -1,0 +1,146 @@
+{
+  "assumptions": [
+    {
+      "id": "A01/A04/A14",
+      "model": "routed experts only; synthetic float64 vectors; no real FFN, quantization, channel errors or hardware calibration",
+      "status": "uncalibrated_reference"
+    },
+    {
+      "id": "A02/A03",
+      "model": "independent fixed Base/Gate delays; per-Die FIFO weight/local/source Combine separate from expert compute unless explicitly configured independent",
+      "status": "user_selected_reference"
+    },
+    {
+      "id": "A05",
+      "model": "half-open expert batch windows, early cap, shared Die compute FIFO",
+      "status": "user_selected_reference"
+    },
+    {
+      "id": "A06",
+      "model": "multiple TX/RX per endpoint on globally disjoint subcarriers; no spatial reuse or power/SNR coupling",
+      "status": "user_selected_ideal_radio"
+    },
+    {
+      "id": "A08/A11",
+      "model": "one spectrum-occupying setup per hop; no setup restart or extra retuning cost; event-driven reallocation; CA refresh interval capped by epoch_s",
+      "status": "user_selected_reference"
+    },
+    {
+      "id": "A09",
+      "model": "Q=remaining bytes/q_ref; W=age since ready/w_ref including active service; I=fraction of destination Dies with neither running nor closed queued batches (dispatch only); C=1 for Return; coefficients configurable, default all 1",
+      "status": "explicit_reference_parameterization"
+    },
+    {
+      "id": "A10",
+      "model": "FIFO non-preemptive admission up to Nsc flows; static uses floor(Nsc/F) and leaves remainder idle; CA uses paper max(1,floor(quota)) then largest remainder, repairing overflow with one-per-flow reservation; all-zero priority falls back to equal",
+      "status": "user_selected_reference"
+    },
+    {
+      "id": "A12",
+      "model": "A per-remote-expert Source->virtual Base->expert and expert->Base->Source; each hop charged to same THz budget, Base pure forwarding; B per-expert direct P2P; C/D/Proposed deduplicated broadcast plus Local Combine; local hits bypass radio in all schemes",
+      "status": "user_selected_relay_reference"
+    },
+    {
+      "id": "A13",
+      "model": "earliest arrival to final Base; radio occupancy and PEPD integrate setup and payload segments; capacity uses net PHY rate; bytes counted once per hop",
+      "status": "integral_metric"
+    }
+  ],
+  "config": {
+    "ablation": null,
+    "batching": {
+      "max_tokens": 4,
+      "window_s": 1e-06
+    },
+    "combine": {
+      "local_combine": true,
+      "local_reduce_s": 5e-08,
+      "resource_model": "per_die_fifo",
+      "verification_seed": 7,
+      "weight_s": 2e-08
+    },
+    "compute": {
+      "compute_flops_per_s": 1000000000.0,
+      "memory_bytes_per_s": 100000000.0,
+      "weight_reuse_tokens": 2
+    },
+    "model": {
+      "activation_precision": "bf16",
+      "d_ff": 8,
+      "d_model": 32,
+      "num_experts": 8,
+      "top_k": 4,
+      "weight_precision": "fp8"
+    },
+    "name": "Stage 4 uncalibrated admission stress: 12 tokens, only 2 subcarriers",
+    "phy": {
+      "num_subcarriers": 2,
+      "phy_efficiency": 0.5,
+      "setup_s": 2e-07,
+      "spectral_efficiency": 2,
+      "total_bandwidth_hz": 64000000.0
+    },
+    "scheduling": {
+      "alpha": 1,
+      "beta": 1,
+      "delta": 1,
+      "epoch_s": 1e-06,
+      "gamma": 1,
+      "max_events": 1000000,
+      "q_ref_bytes": 64,
+      "scheme": "Proposed",
+      "w_ref_s": 1e-06
+    },
+    "schema_version": 1,
+    "timing": {
+      "base_to_source_s": 1e-07,
+      "gate_s": 1e-07,
+      "source_combine_s": 2e-07,
+      "source_to_base_s": 1e-07
+    },
+    "topology": {
+      "num_dies": 4
+    },
+    "workload": {
+      "arrival_s": 0.0,
+      "expert_ids": [],
+      "gate_weights": [],
+      "interarrival_s": 0.0,
+      "num_tokens": 12,
+      "routing": "uniform",
+      "seed": 19,
+      "source_die": 0,
+      "source_policy": "round_robin",
+      "trace_file": null,
+      "zipf_skew": 0.0
+    }
+  },
+  "config_sha256": "5fb5267e92fcd3b2fa1355fd98a15506b15364cf831310fc45dfaa68c5893f1d",
+  "dependencies": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "input_trace_sha256": null,
+  "model_status": "uncalibrated; ideal retuning; synthetic float64 semantics",
+  "not_implemented": [
+    "real FFN",
+    "BF16/FP8 numerical quantization",
+    "shared expert",
+    "calibrated retuning/power/channel model"
+  ],
+  "numerical_verification": {
+    "atol": 1e-10,
+    "max_abs_error": 1.1102230246251565e-16,
+    "output_row_mapping": "output_validation.csv",
+    "rtol": 1e-10
+  },
+  "python_version": "3.12.14",
+  "schema_version": 1,
+  "simulator_version": "0.5.0",
+  "source_sha256": "f1e1a925f4fd9e6209527e574682da006e3c1d5e59f5d3bce6c02f0645c68876",
+  "specification_sha256": "072f0287b6b79494564d0190f3143b348642f3328aaf9d5168eb385b29f40fdf",
+  "stage": "stage4_five_schemes",
+  "virtual_base_endpoint": null,
+  "workload_sha256": "557aca6fbc477fd24650e54896c1854a2b4eda06f14ab84e688ea44f636e6119"
+}
