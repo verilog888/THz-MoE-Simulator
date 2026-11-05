@@ -1,17 +1,22 @@
 [build-system]
-requires = ["setuptools==84.0.0"]
+requires = ["setuptools==84.0.0", "pybind11==3.0.1"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "vdie-moe-sim"
-version = "0.5.0"
-description = "Staged, auditable discrete-event reference model for V-Die MoE"
+version = "1.0.0"
+description = "Complete auditable single-layer V-Die MoE timing and energy simulator"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["numpy==2.3.5", "pandas==2.2.3", "matplotlib==3.10.8"]
+dependencies = ["numpy==2.3.5", "pandas==2.2.3", "matplotlib==3.10.8",
+                "PyYAML==6.0.3", "tokenizers==0.22.1", "huggingface-hub==0.36.0",
+                "pyarrow==22.0.0", "python-docx==1.2.0", "ml_dtypes==0.5.3", "pytest==8.4.2"]
 
 [project.scripts]
-vdie-moe-sim = "vdie_moe_sim.main:main"
+vdie-moe-sim = "vdie_moe_sim.run_all:main"
 
 [tool.setuptools.packages.find]
 include = ["vdie_moe_sim*"]
+
+[tool.setuptools.package-data]
+vdie_moe_sim = ["native/*.cpp"]

@@ -1,0 +1,91 @@
+{
+  "structural": {
+    "exit_code": 0,
+    "tests": 191,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "numeric_gate": {
+    "exit_code": 1,
+    "tests": 8,
+    "failures": 8,
+    "errors": 0,
+    "skipped": 0
+  },
+  "fp8_cases": [
+    {
+      "model": "M1",
+      "nonzero_bias": false,
+      "local_combine": false,
+      "fp32_equivalence": true,
+      "nrmse": 0.06928369402885437,
+      "cosine": 0.9976780414581299,
+      "passed": false
+    },
+    {
+      "model": "M1",
+      "nonzero_bias": false,
+      "local_combine": true,
+      "fp32_equivalence": true,
+      "nrmse": 0.06946296989917755,
+      "cosine": 0.9976751804351807,
+      "passed": false
+    },
+    {
+      "model": "M1",
+      "nonzero_bias": true,
+      "local_combine": false,
+      "fp32_equivalence": true,
+      "nrmse": 0.06849419325590134,
+      "cosine": 0.9976662993431091,
+      "passed": false
+    },
+    {
+      "model": "M1",
+      "nonzero_bias": true,
+      "local_combine": true,
+      "fp32_equivalence": true,
+      "nrmse": 0.06868743896484375,
+      "cosine": 0.9976548552513123,
+      "passed": false
+    },
+    {
+      "model": "M2",
+      "nonzero_bias": false,
+      "local_combine": false,
+      "fp32_equivalence": true,
+      "nrmse": 0.07631491869688034,
+      "cosine": 0.9970893859863281,
+      "passed": false
+    },
+    {
+      "model": "M2",
+      "nonzero_bias": false,
+      "local_combine": true,
+      "fp32_equivalence": true,
+      "nrmse": 0.07595700770616531,
+      "cosine": 0.9971168041229248,
+      "passed": false
+    },
+    {
+      "model": "M3",
+      "nonzero_bias": false,
+      "local_combine": false,
+      "fp32_equivalence": true,
+      "nrmse": 0.06447064876556396,
+      "cosine": 0.9979214668273926,
+      "passed": false
+    },
+    {
+      "model": "M3",
+      "nonzero_bias": false,
+      "local_combine": true,
+      "fp32_equivalence": true,
+      "nrmse": 0.06410981714725494,
+      "cosine": 0.9979537725448608,
+      "passed": false
+    }
+  ],
+  "all_acceptance_passed": false
+}

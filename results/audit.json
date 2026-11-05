@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "planned_records": 4020,
+  "treatments": {
+    "timing": 2280,
+    "energy_replay": 1680,
+    "equivalent_prefill_control": 60
+  },
+  "frozen_traces": 75,
+  "frozen_trace_tokens": 451580,
+  "simulated_tokens": 13054040,
+  "processed_events": 126112058955,
+  "checked_result_files": 13140,
+  "source_sha256": "d4c0c9ec7b2ddc1bb05542d9f67ae2c657d3cf91cb9d487149fda43938f495f9",
+  "numeric_diagnosis": {
+    "independent_reference": "ml_dtypes.float8_e4m3fn",
+    "reference_version": "0.5.3",
+    "encode_comparisons": 1000506,
+    "encoding_bit_exact": true,
+    "all_256_decodings_match": true,
+    "end_to_end_fp8_checks": [
+      {
+        "model": "M1",
+        "nonzero_bias": false,
+        "local_combine": false,
+        "fp32_equivalence": true,
+        "nrmse": 0.06928369402885437,
+        "cosine": 0.9976780414581299,
+        "passed": false
+      },
+      {
+        "model": "M1",
+        "nonzero_bias": false,
+        "local_combine": true,
+        "fp32_equivalence": true,
+        "nrmse": 0.06946296989917755,
+        "cosine": 0.9976751804351807,
+        "passed": false
+      },
+      {
+        "model": "M1",
+        "nonzero_bias": true,
+        "local_combine": false,
+        "fp32_equivalence": true,
+        "nrmse": 0.06849419325590134,
+        "cosine": 0.9976662993431091,
+        "passed": false
+      },
+      {
+        "model": "M1",
+        "nonzero_bias": true,
+        "local_combine": true,
+        "fp32_equivalence": true,
+        "nrmse": 0.06868743896484375,
+        "cosine": 0.9976548552513123,
+        "passed": false
+      },
+      {
+        "model": "M2",
+        "nonzero_bias": false,
+        "local_combine": false,
+        "fp32_equivalence": true,
+        "nrmse": 0.07631491869688034,
+        "cosine": 0.9970893859863281,
+        "passed": false
+      },
+      {
+        "model": "M2",
+        "nonzero_bias": false,
+        "local_combine": true,
+        "fp32_equivalence": true,
+        "nrmse": 0.07595700770616531,
+        "cosine": 0.9971168041229248,
+        "passed": false
+      },
+      {
+        "model": "M3",
+        "nonzero_bias": false,
+        "local_combine": false,
+        "fp32_equivalence": true,
+        "nrmse": 0.06447064876556396,
+        "cosine": 0.9979214668273926,
+        "passed": false
+      },
+      {
+        "model": "M3",
+        "nonzero_bias": false,
+        "local_combine": true,
+        "fp32_equivalence": true,
+        "nrmse": 0.06410981714725494,
+        "cosine": 0.9979537725448608,
+        "passed": false
+      }
+    ]
+  },
+  "acceptance_all_passed": false,
+  "elapsed_wall_s": 33.02957824299665
+}

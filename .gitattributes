@@ -1,6 +1,11 @@
 * text=auto eol=lf
+# Preserve the exact bytes used by approval and result checksums.
+*.csv -text
 *.png binary
 *.npy binary
-# Keep archived Matplotlib SVG bytes unchanged, including generated whitespace.
-docs/evidence/**/*.svg binary
-*.xz binary
+*.npz binary
+*.parquet binary
+*.docx binary
+*.pdf binary
+*.gz binary
+*.svg binary

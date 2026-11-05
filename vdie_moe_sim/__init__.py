@@ -1,3 +1,2 @@
-"""Auditable V-Die MoE reference simulator, implemented in stages."""
-
-__version__ = "0.5.0"
+"""Auditable single-layer V-Die MoE simulator, specification 1.0."""
+__version__ = "1.0.0"

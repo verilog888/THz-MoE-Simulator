@@ -1,0 +1,132 @@
+{
+  "checked_at_utc": "2026-11-05T02:46:35.947288+00:00",
+  "scope": "Delivery, document rendering and saved-result integrity; this is not a waiver of numerical acceptance.",
+  "experiments_complete": true,
+  "all_acceptance_passed": false,
+  "planned_records": 4020,
+  "treatments": {
+    "timing": 2280,
+    "energy_replay": 1680,
+    "equivalent_prefill_control": 60
+  },
+  "structural_validation": {
+    "exit_code": 0,
+    "tests": 191,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "numeric_validation": {
+    "exit_code": 1,
+    "tests": 8,
+    "failures": 8,
+    "errors": 0,
+    "skipped": 0
+  },
+  "numeric_nrmse_range": [
+    0.06410981714725494,
+    0.07631491869688034
+  ],
+  "approved_nrmse_limit": 0.05,
+  "offline_audit_passed": true,
+  "checked_result_files": 13140,
+  "source_sha256": "d4c0c9ec7b2ddc1bb05542d9f67ae2c657d3cf91cb9d487149fda43938f495f9",
+  "verified_source_files": 51,
+  "figure_sets": 67,
+  "figure_formats": [
+    "png",
+    "svg",
+    "csv"
+  ],
+  "document_render": {
+    "pages": 52,
+    "parameter_keys_found": 211,
+    "missing_parameter_keys": [],
+    "off_page_text_blocks": [],
+    "sections": [
+      [
+        "1. 仿真目标",
+        1
+      ],
+      [
+        "2. 仿真简述",
+        2
+      ],
+      [
+        "3. 仿真参数表",
+        3
+      ],
+      [
+        "4. 仿真流程",
+        23
+      ],
+      [
+        "5. 仿真结果",
+        24
+      ],
+      [
+        "6. 结果整理与对照",
+        32
+      ],
+      [
+        "7. 结论",
+        50
+      ]
+    ]
+  },
+  "visual_review": "Contact sheets and representative full-size parameter, result and conclusion pages reviewed; captions remain with charts.",
+  "artifacts": {
+    "simulation_report.docx": {
+      "bytes": 3027096,
+      "sha256": "f7412e63ec958d0b0b71d07c55928c4bf2b3602b886b5b967b4d6b66336a5ada"
+    },
+    "simulation_report.pdf": {
+      "bytes": 4802801,
+      "sha256": "5067699efaa35973fdfff65bf710fb02730e1df9e830968d3e20e275b821c567"
+    },
+    "report.md": {
+      "bytes": 64362,
+      "sha256": "121b8f190993e87be64c6d33c84969f028cb49702a6dd8b1e7633abf10a6634c"
+    },
+    "parameters.csv": {
+      "bytes": 39368,
+      "sha256": "5e42d85b814d4a2b4bb5eb35cd9a25ed053902aa9bdbffe1973774f7d044bcdc"
+    },
+    "raw_runs.csv": {
+      "bytes": 3986394,
+      "sha256": "c7815c5452b088d30b4e083ee57cca50cb06847e89528939dcf709a06c137d14"
+    },
+    "aggregate.csv": {
+      "bytes": 821671,
+      "sha256": "e6ea00a17907f1ffcde8da2c3c68bbbfc540a1b51defe031796e9995d29c3eee"
+    },
+    "paired_effects.csv": {
+      "bytes": 179552,
+      "sha256": "6df0894296aa8eb7394cb49373fb63698d57b49b8b2993bd089ca0e897b9eb7f"
+    },
+    "factorial_summary.csv": {
+      "bytes": 47357,
+      "sha256": "3123ac8812432e58f4a55c6254769bfd84263887d6834fdda38d6f38ebe0110a"
+    },
+    "scheduler_metrics.csv": {
+      "bytes": 769683,
+      "sha256": "6f9337503c57d4c8fbaba2c649c14a936a559e8161728071f08a6b7fa1c2459a"
+    },
+    "validation.json": {
+      "bytes": 2032,
+      "sha256": "d7aa1e3c0c79246e13992405c0a78bc6ef84dd85a55c91c11df5e863ca4b5281"
+    },
+    "audit.json": {
+      "bytes": 2622,
+      "sha256": "8c50b099093b83548fd6e77a087f3c9275330f461087a40077fa7cb0a380d8a7"
+    },
+    "source_provenance.json": {
+      "bytes": 5481,
+      "sha256": "60363d83cafcf6cb9d9770f779c3a94d33481596c5f6b811722bf1b2407db92e"
+    },
+    "manifest.json": {
+      "bytes": 2103774,
+      "sha256": "309714f02b005e6976860b5522db93be429a2bc4eb13f0214a665de82f1a16c2"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+approval_id: VDIE-FULL-v1.0-review-1
+status: approved
+simulation_allowed: true
+original_spec_sha256: ba08e82351e2f1e886a7d2a952ebff529b4748d97cfb98281054e8a72377edbd
+extra_sensitivity:
+  compute.vector_energy_multiplier:
+  - 2.0
+  - 4.0
+  - 8.0
+interpretations:
+  review.all_non_source_semantics: physical_receive_half_duplex
+  review.prefill_reuse_semantics: explicit_no_effect_control
+  runtime.python: 3.12.14
+  runtime.max_processes: 4
+  data.empty_rule: strip_only_for_empty_check
+  data.duplicate_rule: exact_original_prompt_first_row
+  data.row_id: zero_based_original_csv_row
+  random.generator: numpy.PCG64
+  random.request_sampling: PCG64(seed).choice(clean_rows,128,replace=False)
+  random.seed_encoding: SHA256(UTF8(compact_JSON_tuple)) -> unsigned_big_endian_integer
+  random.rank_domain: '[seed,model_id,"expert_rank"]'
+  random.reuse_domain: '[seed,model_id,row_id,"decode_reuse",token_position]'
+  random.uniform_support: 0<U<1; redraw_exact_zero
+  numeric.test_seed: 20261104
+  numeric.bias_rule: M1_zero_bias_fixture_plus_nonzero_bias_fixture
+  numeric.nrmse_denominator_floor: 1.0e-12
+  numeric.reference: same_small_FP32_weights_and_inputs
+  timing.digital_alignment_ps: 5000
+  timing.radio_service_remainder: exact_rational_bits_across_frames
+  timing.simultaneous_event_order: completion_release_then_ready_then_admission
+  compute.task_priority: Combine > Gate > oldest_expert; tile_boundaries
+  compute.tile_loop: output_N_then_reduction_K
+  memory.dma_service_policy: ready_time_fifo_then_stable_id_nonpreemptive_burst
+  memory.tile_buffers_bytes:
+  - 262144
+  - 262144
+  memory.input_uses_dispatch_partition: true
+  memory.owner_accumulator_bytes: 4*d_model*active_owner_tokens
+  energy.enabled_vdies: 16
+  energy.locked_lo_nodes: 17
+  energy.refresh_integration: continuous_average_over_cohort_makespan
+  energy.control_frontends: base:1TX+16RX; peer:1TX+15RX
+  statistics.bootstrap_unit: paired_seed_then_cohort_hierarchical
+  statistics.bootstrap_rng: SHA256([20261104,"bootstrap",model,mode,B,axis,value])
+  statistics.ratio_estimator: ratio_of_paired_aggregate_means
+  statistics.percentiles: p50,p95; linear empirical interpolation
+  statistics.energy_per_token: sum_cohort_energy / actual_completed_tokens
+  output.complete_rule: all_planned_records_resolved_and_all_acceptance_checks_passed
+  output.final_report: results/simulation_report.docx
+approval_message: 用户：确认通过
+approval_date_asia_shanghai: '2026-11-05'

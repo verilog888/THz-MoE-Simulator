@@ -1,0 +1,43 @@
+{
+  "status": "static_review_only",
+  "approval_id": "VDIE-FULL-v1.0-review-1",
+  "simulation_executed": false,
+  "spec_sha256": "ba08e82351e2f1e886a7d2a952ebff529b4748d97cfb98281054e8a72377edbd",
+  "source_parameters": 211,
+  "table_yaml_equality": true,
+  "model_capacity_matches": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "workspace_partition_sum_matches": true,
+  "derived_energy_constants_match": true,
+  "dataset_check": {
+    "revision": "6c258c8c477a799c95246cca4cf8bf734d3c36ad",
+    "sha256": "4488c4093ee42953b556ffad71e5cb2cd03de85eca0739c2643618e4928bfae7",
+    "bytes": 421971,
+    "columns": [
+      "human_prompt",
+      "chatgpt_response"
+    ],
+    "raw_rows": 360,
+    "empty_removed": 0,
+    "duplicate_removed": 0,
+    "clean_rows": 360,
+    "enough_for_128_without_replacement": true,
+    "cleaning": "whitespace-only is empty; duplicate exact original human_prompt; preserve original strings and first occurrence"
+  },
+  "plan_counts": {
+    "main": 840,
+    "strong_tdma": 60,
+    "sensitivity": 2880,
+    "extra_vector_sensitivity": 240
+  },
+  "execution_treatments": {
+    "timing": 2280,
+    "energy_replay": 1680,
+    "equivalent_prefill_control": 60
+  },
+  "implementation_option_rows": 40,
+  "derived_rows": 37
+}

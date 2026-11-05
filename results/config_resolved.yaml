@@ -1,0 +1,302 @@
+spec:
+  version: '1.0'
+simulation:
+  engine: discrete_event
+  time_unit_ps: 1
+  seed_list:
+  - 20261104
+  - 20261105
+  - 20261106
+  - 20261107
+  - 20261108
+  fp8_numeric_test_tokens: 16
+  numeric_test_d: 64
+  numeric_test_h: 32
+  fp32_rtol: 1.0e-05
+  fp32_atol: 1.0e-06
+  fp8_nrmse_limit: 0.05
+  fp8_cosine_min: 0.99
+models:
+  M1:
+    repo: openai/gpt-oss-20b
+    total_params_b: 20.91
+    active_params_b: 3.61
+    d_model: 2880
+    d_ff: 2880
+    routed_experts: 32
+    top_k: 4
+    shared_experts: 0
+    shared_d_ff: 0
+    transformer_layers: 24
+    moe_layers: 24
+    layer_index: 1
+    expert_linear_bias: true
+    router_linear_bias: true
+    router_correction_fp32: false
+    activation: gpt_oss_swiglu
+    swiglu_alpha: 1.702
+    swiglu_limit: 7.0
+    expert_matrix_params: 24883200
+    expert_params_including_bias: 24891840
+    expert_storage_bytes: 24898464
+    router_storage_bytes: 92288
+    resident_bytes_per_die: 54083520
+  M2:
+    repo: Qwen/Qwen3-30B-A3B
+    total_params_b: 30.5
+    active_params_b: 3.3
+    d_model: 2048
+    d_ff: 768
+    routed_experts: 128
+    top_k: 8
+    shared_experts: 0
+    shared_d_ff: 0
+    transformer_layers: 48
+    moe_layers: 48
+    layer_index: 1
+    expert_linear_bias: false
+    router_linear_bias: false
+    router_correction_fp32: false
+    activation: silu_glu
+    expert_matrix_params: 4718592
+    expert_params_including_bias: 4718592
+    expert_storage_bytes: 4719744
+    router_storage_bytes: 262208
+    resident_bytes_per_die: 42214464
+  M3:
+    repo: baidu/ERNIE-4.5-21B-A3B-PT
+    total_params_b: 21.0
+    active_params_b: 3.0
+    d_model: 2560
+    d_ff: 1536
+    routed_experts: 64
+    top_k: 6
+    shared_experts: 2
+    shared_d_ff: 1536
+    transformer_layers: 28
+    moe_layers: 27
+    layer_index: 1
+    expert_linear_bias: false
+    router_linear_bias: false
+    router_correction_fp32: true
+    activation: silu_glu
+    expert_matrix_params: 11796480
+    expert_params_including_bias: 11796480
+    expert_storage_bytes: 11799360
+    router_storage_bytes: 164176
+    resident_bytes_per_die: 63355280
+precision:
+  activation: FP8_E4M3FN
+  weight: FP8_E4M3FN
+  accumulator: FP32
+  weight_block:
+  - 128
+  - 128
+  activation_block: 128
+  scale_bytes: 4
+  fp8_max: 448
+  scale_zero_amax: 1.0
+  rounding: nearest_even_saturate
+hardware:
+  vdies: 16
+  base_dies: 1
+  clock_hz: 200000000
+  peak_ops_s: 1000000000000
+  ops_per_mac: 2
+  edram_bytes: 64000000
+  workspace_bytes: 4194304
+  buffer_partition_bytes:
+  - 524288
+  - 1048576
+  - 1048576
+  - 1048576
+  - 524288
+  tx_return_reserve_bytes: 524288
+  rx_return_reserve_bytes: 524288
+  partial_owner_reserve_bytes: 262144
+  owner_inflight_limit: 16
+  vector_lanes: 64
+  compute_utilization: 1.0
+  compute_setup_cycles: 2
+  compute_voltage_v: 1.1
+  edram_voltage_v: 0.9
+  temperature_c: 27
+compute:
+  tile_m: 16
+  tile_n: 128
+  tile_k: 128
+  batch_wait_cycles: 20
+  activation_ops_per_element: 8
+  gpt_activation_ops_per_element: 12
+  softmax_ops_per_element: 8
+  quantize_ops_per_element: 3
+  vector_energy_multiplier: 4.0
+  energy_scale: 1.0
+  extra_idle_power_w: 0.01
+  base_io_idle_power_w: 0.01
+memory:
+  banks: 64
+  external_bytes_per_bank_cycle: 16
+  bandwidth_scale: 1.0
+  access_latency_cycles: 1
+  read_pj_bit: 0.025
+  write_pj_bit: 0.04
+  refresh_pj_bit: 0.065
+  refresh_period_ps: 11000000
+  leakage_pw_bit: 1.25
+  refresh_blocks_user_port: false
+  refresh_scope: entire_capacity
+  energy_scale: 1.0
+mapping:
+  routed: expert_id_mod_16
+  owner: request_ordinal_mod_16
+  shared: parity_replica_pair
+  router_replicas: 16
+  warm_weights: true
+radio:
+  groups_per_vdie: 2
+  channels_per_group: 1
+  base_groups: 1
+  carrier_hz: 153800000000
+  reference_bandwidth_hz: 45000000000
+  ptp_raw_bps: 132000000000
+  broadcast_raw_bps: 80000000000
+  rate_scale: 1.0
+  half_duplex_per_group: true
+  spatial_reuse: false
+  independent_groups: true
+  rx_pipeline_cycles: 2
+  propagation_delay_ps: 20
+  residual_packet_error: 0.0
+  multicast_receivers: destination_mask
+mac:
+  frame_cycles: 20
+  control_cycles: 4
+  guard_cycles: 1
+  queue_report_bytes: 8
+  grant_header_bytes: 8
+  grant_bytes_per_ru: 4
+  arbitration_cycles: 1
+  peer_arbiter_die: 0
+  fft_size: 256
+  data_subcarriers: 224
+  pilot_subcarriers: 16
+  guard_subcarriers: 16
+  cp_samples: 16
+  resource_units: 16
+  starvation_limit_frames: 16
+  packet_header_bytes: 32
+  crc_bytes: 4
+  dispatch_entry_bytes: 8
+  mtu_payload_bytes: 4096
+energy:
+  lo_w_per_node: 0.032
+  tx_increment_w_per_group: 0.00635
+  rx_increment_w_per_group: 0.0056
+  equalizer_extra_w_per_rx: 0.02
+  ofdma_extra_w_per_active_group: 0.40896428571428567
+  report_modes:
+  - frontend_proxy
+  - baseband_stress
+  compute_pj_op: 0.06980500749971157
+workload:
+  dataset: MohamedRashad/ChatGPT-prompts
+  split: train
+  prompt_column: human_prompt
+  response_column: chatgpt_response
+  requests_per_seed: 128
+  prefill_batches:
+  - 1
+  - 8
+  - 32
+  prefill_length_cap: 1024
+  decode_batches:
+  - 1
+  - 8
+  - 32
+  - 128
+  decode_steps_cap: 64
+  decode_refill: false
+  arrival: closed_cohort_barrier
+  tokenization: official_plain_text_no_special_tokens
+  input_trace_mode: dataset_tokens_synthetic_router
+  routing_profile: uniform
+  zipf_alpha: 1.2
+  decode_reuse_probability: 0.0
+  source_revision: resolve_and_freeze
+experiment:
+  baseline_ids:
+  - T_P_N
+  - T_B_N
+  - T_P_L
+  - T_B_L
+  - O_P_N
+  - O_B_N
+  - O_P_L
+  - O_B_L
+  strong_tdma_ids:
+  - TW_P_N
+  - TW_B_L
+  sensitivity_cases:
+  - prefill_B32
+  - decode_B32
+  sensitivity_baseline_ids:
+  - T_P_N
+  - O_P_N
+  - T_B_L
+  - O_B_L
+  rate_scale_values:
+  - 0.25
+  - 0.5
+  - 1.0
+  broadcast_rate_values:
+  - 80000000000
+  - 124000000000
+  compute_utilization_values:
+  - 0.5
+  - 0.75
+  - 1.0
+  memory_bandwidth_scale_values:
+  - 0.5
+  - 1.0
+  - 2.0
+  memory_energy_scale_values:
+  - 1.0
+  - 2.0
+  - 4.0
+  refresh_period_values_ps:
+  - 6000000
+  - 11000000
+  - 100000000
+  compute_energy_scale_values:
+  - 0.5
+  - 1.0
+  - 2.0
+  ofdma_extra_power_values_w:
+  - 0.0
+  - 0.1
+  - 0.40896428571428567
+  equalizer_power_values_w:
+  - 0.0
+  - 0.02
+  - 0.1
+  frame_cycles_values:
+  - 10
+  - 20
+  - 80
+  multicast_rx_values:
+  - destination_mask
+  - all_non_source
+  routing_profiles:
+  - uniform
+  - zipf
+  decode_reuse_values:
+  - 0.0
+  - 0.8
+  idle_power_values_w:
+  - 0.0
+  - 0.01
+  - 0.05
+  bootstrap_resamples: 1000
+  confidence: 0.95
+  no_cartesian_sensitivity: true

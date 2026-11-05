@@ -1,33 +1,30 @@
-"""Synthetic assignments, not evaluation of a neural Gate."""
-
+import hashlib
+import json
 import numpy as np
-from .config import integer, number
 
+def rng_for(parts):
+    raw = json.dumps(parts, separators=(',', ':'), ensure_ascii=False).encode()
+    return np.random.Generator(np.random.PCG64(int.from_bytes(hashlib.sha256(raw).digest(), 'big')))
 
-def uniform_route(num_experts: int, top_k: int,
-                  rng: np.random.Generator) -> tuple[tuple[int, ...], tuple[float, ...]]:
-    integer("num_experts", num_experts)
-    integer("top_k", top_k)
-    if top_k > num_experts:
-        raise ValueError("top_k exceeds num_experts")
-    ids = tuple(int(e) for e in rng.choice(num_experts, size=top_k, replace=False))
-    return ids, tuple(1.0 / top_k for _ in ids)
-
-
-def zipf_probabilities(num_experts: int, skew: float) -> np.ndarray:
-    """PDF p.11 probabilities for the first draw; ranks start at 1."""
-    integer("num_experts", num_experts)
-    number("zipf skew", skew, zero=True)
-    probabilities = np.exp(-skew * np.log(np.arange(1, num_experts + 1, dtype=float)))
-    return probabilities / probabilities.sum()
-
-
-def zipf_route(num_experts: int, top_k: int, skew: float,
-               rng: np.random.Generator) -> tuple[tuple[int, ...], tuple[float, ...]]:
-    integer("top_k", top_k)
-    probabilities = zipf_probabilities(num_experts, skew)
-    if top_k > num_experts or np.count_nonzero(probabilities) < top_k:
-        raise ValueError("not enough representable positive Zipf probabilities for top_k")
-    # Weighted sampling without replacement: inclusion probabilities are NOT k*p_i.
-    ids = tuple(int(e) for e in rng.choice(num_experts, size=top_k, replace=False, p=probabilities))
-    return ids, tuple(1.0 / top_k for _ in ids)
+def route(seed, model_id, row_id, mode, position, model, profile='uniform',
+          alpha=1.2, reuse_probability=0., previous=None):
+    if mode == 'decode' and position and previous is not None:
+        if rng_for([seed, model_id, row_id, 'decode_reuse', position]).random() < reuse_probability:
+            return previous
+    e = model['routed_experts']
+    p = np.full(e, 1/e, dtype=np.float64)
+    if profile == 'zipf':
+        order = rng_for([seed, model_id, 'expert_rank']).permutation(e)
+        p[order] = np.arange(1,e+1,dtype=float)**(-alpha)
+        p /= p.sum()
+    elif profile != 'uniform':
+        raise ValueError(profile)
+    rng = rng_for([seed, model_id, row_id, mode, position])
+    u = rng.random(e)
+    while np.any(u == 0):
+        zero = u == 0
+        u[zero] = rng.random(zero.sum())
+    z = np.log(p)-np.log(-np.log(u))
+    ids = np.lexsort((np.arange(e), -z))[:model['top_k']]
+    w = np.exp(z[ids]-z[ids].max()); w /= w.sum()
+    return ids.tolist(), w.tolist()
