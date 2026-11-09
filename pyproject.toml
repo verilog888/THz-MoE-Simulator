@@ -1,22 +1,21 @@
 [build-system]
-requires = ["setuptools==84.0.0", "pybind11==3.0.1"]
+requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "vdie-moe-sim"
+name = "tov-moe-simulator"
 version = "1.0.0"
-description = "Complete auditable single-layer V-Die MoE timing and energy simulator"
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = ["numpy==2.3.5", "pandas==2.2.3", "matplotlib==3.10.8",
-                "PyYAML==6.0.3", "tokenizers==0.22.1", "huggingface-hub==0.36.0",
-                "pyarrow==22.0.0", "python-docx==1.2.0", "ml_dtypes==0.5.3", "pytest==8.4.2"]
+description = "Reproducible ToV-MoE single-layer and communication-replay simulation"
+requires-python = ">=3.11"
+dependencies = ["numpy", "matplotlib", "huggingface-hub", "transformers", "tokenizers", "sentencepiece", "protobuf", "python-docx"]
 
 [project.scripts]
-vdie-moe-sim = "vdie_moe_sim.run_all:main"
+tov-sim = "tov_sim.run_all:main"
+tov-decode-routes = "tov_sim.decode_routes:main"
 
 [tool.setuptools.packages.find]
-include = ["vdie_moe_sim*"]
+where = ["source"]
 
-[tool.setuptools.package-data]
-vdie_moe_sim = ["native/*.cpp"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["source"]

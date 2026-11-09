@@ -1,39 +1,20 @@
-name: Simulator validation
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-  workflow_dispatch:
-
+name: ToV simulation validation
+on: [push, pull_request]
 permissions:
   contents: read
-
 jobs:
-  test:
+  validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    env:
-      MPLCONFIGDIR: ${{ github.workspace }}/.mplconfig
-      XDG_CACHE_HOME: ${{ github.workspace }}/.cache
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12.14'
+          python-version: '3.12'
           cache: pip
-          cache-dependency-path: requirements.lock
-      - name: Install locked dependencies and simulator
-        run: bash scripts/setup_env.sh
-      - name: Structural and statistical validation
-        run: .venv/bin/python -m pytest -q -m 'not numeric_gate' --junitxml=structural-tests.xml
-      - name: Build the distributable wheel
-        run: .venv/bin/python -m pip wheel --no-deps --no-build-isolation --wheel-dir dist .
-      - name: Original FP8 acceptance gate (failure remains visible)
-        run: .venv/bin/python -m pytest -q -m numeric_gate --junitxml=numeric-tests.xml
-      - name: Preserve actual validation outcomes
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: validation
-          path: '*-tests.xml'
+      - run: python -m pip install -r requirements.lock
+      - run: python -m pip install --no-build-isolation --no-deps -e .
+      - run: python -m pytest -q
+        env:
+          HF_HUB_OFFLINE: '1'
+          TRANSFORMERS_OFFLINE: '1'
+          TOKENIZERS_PARALLELISM: 'false'

@@ -1,11 +1,11 @@
 * text=auto eol=lf
-# Preserve the exact bytes used by approval and result checksums.
-*.csv -text
+# Preserve frozen inputs and artifact checksum bytes.
+*.csv -text -whitespace
+Results/inputs/** -whitespace
+ToV_MoE_MINIMAL_SIM_SPEC.md -whitespace
+*.model binary
 *.png binary
-*.npy binary
-*.npz binary
-*.parquet binary
+*.gz binary
 *.docx binary
 *.pdf binary
-*.gz binary
 *.svg binary

@@ -1,0 +1,7 @@
+all: compared with TSV_NORM_MC_LC at the same 264 Gb/s aggregate raw-link budget, ToV achieves 3.1008x effective D2D useful-delivery throughput (95% paired CI 2.9918–3.2029); single-MoE-layer latency is 0.8797 of the baseline (ST=1.1368, 95% CI 1.1306–1.1419; reduction 12.03%).
+
+prefill: compared with TSV_NORM_MC_LC at the same 264 Gb/s aggregate raw-link budget, ToV achieves 3.1422x effective D2D useful-delivery throughput (95% paired CI 2.9268–3.3530); single-MoE-layer latency is 0.8504 of the baseline (ST=1.1759, 95% CI 1.1632–1.1861; reduction 14.96%).
+
+decode: compared with TSV_NORM_MC_LC at the same 264 Gb/s aggregate raw-link budget, ToV achieves 3.0600x effective D2D useful-delivery throughput (95% paired CI 3.0540–3.0670); single-MoE-layer latency is 0.9099 of the baseline (ST=1.0990, 95% CI 1.0962–1.1015; reduction 9.01%).
+
+Against TSV_HIGH_MC_LC (896 GB/s aggregate), overall SG=0.1343, ST=0.9248. Controlled synthetic routes and ideal, retransmission-free radio reachability are architectural assumptions. These are separate communication replay and single-layer simulations, not pretrained-model accuracy or full-model inference results.

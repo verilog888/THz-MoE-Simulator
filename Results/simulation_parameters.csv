@@ -1,0 +1,123 @@
+﻿parameter,value,meaning
+schema_version,"""tov-minimal-1.0""",配置格式版本；用于拒绝不兼容配置
+hardware.dies,16,V-Die 数量；Base 另计一个端点
+hardware.dram_bytes_per_die,4294967296,每 Die DRAM 容量，byte
+hardware.banks_per_die,16,每 Die 内存 bank 数
+hardware.pe_per_die,16,每 Die NMP PE 数量
+hardware.mac_rows,16,每 PE MAC 阵列行数
+hardware.mac_cols,16,每 PE MAC 阵列列数
+hardware.clock_hz,1000000000,NMP 主频，Hz；本规范恢复为 1 GHz
+hardware.hb_pins_per_bank,1024,每 bank 的 HB pin 数
+hardware.hb_pin_gbps,0.4,每 HB pin 的速率，Gb/s
+hardware.compute_efficiency,0.7,矩阵计算效率，乘峰值 OP/s
+hardware.kernel_memory_efficiency,0.7,kernel 分区内部有效访存比例
+hardware.dma_bandwidth_fraction,0.125,HB 峰值固定分配给网络 DMA 的比例
+hardware.vector_elements_per_cycle,32,逐元素操作吞吐，元素/周期
+hardware.kernel_startup_ns,2,每算子任务启动时间，ns
+hardware.staging_bytes_per_die,8388608,每 Die 有限 DRAM staging 空间，byte
+hardware.base_staging_bytes,8388608,Base staging 空间，byte
+hardware.base_dma_GBps,1024,Base 串行 DMA 带宽，十进制 GB/s
+precision.weight,"""fp8_e4m3fn""",权重存储格式
+precision.activation,"""fp8_e4m3fn""",线上向量格式
+precision.accumulation,"""fp32""",内部累加格式
+precision.weight_block,128,权重量化二维 block 边长
+precision.activation_block,128,向量量化 block 元素数
+precision.scale_bytes,4,每个量化 scale 的字节数
+execution.owner_window,4,每 owner 最多同时在途 token 数
+execution.expert_batch_max,8,每专家微批 token 上限
+execution.batch_wait_ns,200,专家队列最老输入的聚批等待上限，ns
+packet.header_bytes,32,每包固定包头 byte，含目的 mask
+packet.crc_bytes,4,每包 CRC byte
+packet.expert_entry_bytes,8,每个 expert ID/gate 目录项 byte
+radio.groups_per_die,2,独立频谱域数；Base-facing 与 peer-facing
+radio.unicast_gbps,132,每域共享的单播原始总速率，Gb/s
+radio.broadcast_gbps,80,每域共享的多目的广播原始总速率，Gb/s
+radio.carrier_GHz,153.8,载波频率记录，GHz；不用于倍乘数字带宽
+radio.frame_ns,100,全局对齐调度帧长，ns
+radio.guard_ns,5,帧保护/TDMA 帧内换向保护时间，ns
+radio.controller_ns,5,控制仲裁时间代理，ns
+radio.report_bytes,8,每源 HOL flow 报告 byte
+radio.grant_base_bytes,8,固定 grant byte
+radio.grant_bytes_per_ru,4,每 RU grant byte
+radio.rus,16,每域资源单元总数
+radio.fft_bins,256,FFT bin 数
+radio.data_bins,224,携带数据的 bin 数
+radio.cp_bins,16,循环前缀长度
+radio.endpoint_pipeline_ns,5,每包每端点流水时间，ns
+radio.ofdm_extra_endpoint_ns,10,OFDM 每端点附加流水时间，ns
+radio.rate_scale,1.0,单播和广播速率共同缩放系数
+tsv.normalized_total_gbps,264,NORM 所有端口聚合原始设计预算，Gb/s；不是 TSV 技术上限
+tsv.high_bw_total_GBps,896,HIGH 强有线聚合带宽情景，GB/s
+tsv.payload_efficiency,0.9,TSV payload 服务效率
+tsv.turnaround_ns,5,半双工端口换向时间，ns
+tsv.base_route_ns,5,Base 完整收包后的转发处理时间，ns
+tsv.endpoint_pipeline_ns,5,每跳每端点流水时间，ns
+workload.dataset,"""MohamedRashad/ChatGPT-prompts""",公开文本数据集 ID
+workload.split,"""train""",数据集划分
+workload.requests_per_seed,32,每种子无放回请求数
+workload.seeds,"[11, 23, 37]",PCG64 抽样与路由种子
+workload.batch_sizes,"[1, 8]",每 cohort 并发请求数 B
+workload.phases,"[""prefill"", ""decode""]",Prefill 与 teacher-forced 单层 Decode
+workload.prefill_token_cap,256,每请求最大输入 token 数
+workload.decode_step_cap,32,每请求最大 Decode 轮数
+workload.routing_profiles,"[""uniform"", ""hot_shift""]",受控合成路由分布
+workload.zipf_alpha,1.2,hot_shift 排名权重指数
+workload.prefill_hot_epoch_tokens,128,Prefill 每个热集周期的逻辑 token 数
+workload.decode_hot_epoch_steps,4,Decode 每个热集周期的轮数
+models[0].id,"""gpt_oss_20b""",模型内部标识
+models[0].repo,"""openai/gpt-oss-20b""",官方 Hugging Face 仓库
+models[0].layer_index,1,所模拟 MoE 层索引
+models[0].d,2880,隐藏向量维度
+models[0].h,2880,每 routed/shared 分支中间维度
+models[0].E,32,routed 专家总数
+models[0].k,4,每 token routed Top-k 数
+models[0].shared,0,每 token 额外共享分支数
+models[0].expert_bias,true,专家矩阵是否含 bias
+models[0].router_bias,true,Router 是否含 bias
+models[0].activation_rule,"""gpt_oss_swiglu""",模型对应的门控非线性规则
+models[1].id,"""qwen3_30b_a3b""",模型内部标识
+models[1].repo,"""Qwen/Qwen3-30B-A3B""",官方 Hugging Face 仓库
+models[1].layer_index,1,所模拟 MoE 层索引
+models[1].d,2048,隐藏向量维度
+models[1].h,768,每 routed/shared 分支中间维度
+models[1].E,128,routed 专家总数
+models[1].k,8,每 token routed Top-k 数
+models[1].shared,0,每 token 额外共享分支数
+models[1].expert_bias,false,专家矩阵是否含 bias
+models[1].router_bias,false,Router 是否含 bias
+models[1].activation_rule,"""silu_gate""",模型对应的门控非线性规则
+models[2].id,"""ernie_21b_a3b""",模型内部标识
+models[2].repo,"""baidu/ERNIE-4.5-21B-A3B-PT""",官方 Hugging Face 仓库
+models[2].layer_index,1,所模拟 MoE 层索引
+models[2].d,2560,隐藏向量维度
+models[2].h,1536,每 routed/shared 分支中间维度
+models[2].E,64,routed 专家总数
+models[2].k,6,每 token routed Top-k 数
+models[2].shared,2,每 token 额外共享分支数
+models[2].expert_bias,false,专家矩阵是否含 bias
+models[2].router_bias,false,Router 是否含 bias
+models[2].activation_rule,"""silu_gate""",模型对应的门控非线性规则
+methods,"[""TSV_NORM_P2P_LC"", ""TSV_NORM_MC_LC"", ""TSV_HIGH_MC_LC"", ""THZ_TDMA_P2P_LC"", ""THZ_TDMA_BCAST_LC"", ""THZ_OFDMA_P2P_LC"", ""THZ_OFDMA_BCAST_NO_LC"", ""TOV_OFDMA_BCAST_LC""]",全部八个互连/数据流对照
+primary_baseline,"""TSV_NORM_MC_LC""",主要对照方法
+primary_proposal,"""TOV_OFDMA_BCAST_LC""",完整 ToV 方案
+energy.mac_pJ,0.982,每有效 MAC 的代理能耗，pJ
+energy.hb_pJ_per_bit,0.88,HB 接口每访问 bit 代理能耗，pJ
+energy.dram_core_pJ_per_bit,0.5,DRAM core 每访问 bit 代理能耗，pJ
+energy.scalar_pJ_per_op,1.0,每标量操作代理能耗，pJ
+energy.tsv_pJ_per_bit_hop,0.2,TSV 每实际 bit-hop 代理能耗，pJ
+energy.rf_lo_mW_per_node,32,每节点两域共享 LO 功率，mW
+energy.rf_tx_mW,6.35,活动域 TX 电路功率，mW
+energy.rf_rx_mW,5.6,活动域 RX 电路功率，mW
+energy.ofdm_W_per_active_endpoint,0.1,每活动端点/域 OFDM/EQ 基带功率代理，W
+energy.background_W_per_die,0.5,每 Die 背景功率代理，W
+energy.base_W,0.1,Base 背景功率代理，W
+experiment.bootstrap_samples,2000,分层配对 bootstrap 重采样次数
+experiment.bootstrap_seed,2026,bootstrap 固定 PCG64 种子
+sensitivity.model,"""qwen3_30b_a3b""",敏感性分析模型 ID
+sensitivity.B,8,敏感性分析并发请求数
+sensitivity.routing_profile,"""hot_shift""",敏感性分析路由分布
+sensitivity.tsv_budget_multipliers,"[0.5, 1, 2, 4, 8]",TSV NORM 聚合预算倍数，单轴变化
+sensitivity.thz_rate_scales,"[0.5, 0.75, 1]",THz 速率缩放点；控制时间同步重算
+sensitivity.die_counts,"[4, 8, 16]",配对节点数敏感性点
+sensitivity.memory_efficiencies,"[0.4, 0.7, 1.0]",kernel 访存效率敏感性点；DMA 分区不变
+sensitivity.ofdm_endpoint_power_W,"[0, 0.1, 0.4]",基带功率代理重计价点，W；不重跑时序

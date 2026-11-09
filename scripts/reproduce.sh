@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
-repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-cd "$repo_dir"
-export MPLCONFIGDIR="${MPLCONFIGDIR:-$repo_dir/.mplconfig}"
-export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$repo_dir/.cache}"
-exec .venv/bin/python -m vdie_moe_sim.run_all --spec VDIE_MOE_SIM_SPEC.md --output results "$@"
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+export TOKENIZERS_PARALLELISM=false
+export MPLCONFIGDIR="${TMPDIR:-/tmp}/tov-matplotlib"
+.venv/bin/python -m tov_sim.run_all --spec ToV_MoE_MINIMAL_SIM_SPEC.md --output "${1:-Results}" --workers "${TOV_WORKERS:-4}"

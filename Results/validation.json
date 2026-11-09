@@ -1,0 +1,1447 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "units_and_fixed_HB_partition",
+      "passed": true,
+      "details": {
+        "peak_ops_per_second": 8192000000000,
+        "system_peak_ops_per_second": 131072000000000,
+        "hb_bytes_per_second": 819200000000.0,
+        "kernel_bytes_per_second": 501759999999.99994,
+        "dma_bytes_per_second": 102400000000.0,
+        "effective_ops_per_second": 5734400000000.0,
+        "scalar_ops_per_second": 32000000000,
+        "ofdm_efficiency": 0.8235294117647058,
+        "control_base_ps": 21000,
+        "control_peer_ps": 20000,
+        "tsv_norm_port_gbps": 16.5,
+        "tsv_high_port_gbps": 448.0,
+        "sram_bytes_per_die": 917504
+      }
+    },
+    {
+      "name": "capacity_scales_bias_shared_SRAM",
+      "passed": true,
+      "details": [
+        {
+          "model": "gpt_oss_20b",
+          "dies": 4,
+          "node": 0,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 199280000,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 207668608,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 4,
+          "node": 1,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 199280000,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 207668608,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 4,
+          "node": 2,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 199280000,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 207668608,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 4,
+          "node": 3,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 199280000,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 207668608,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 4,
+          "node": 0,
+          "routed_experts": 32,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 151294016,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 159682624,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 4,
+          "node": 1,
+          "routed_experts": 32,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 151294016,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 159682624,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 4,
+          "node": 2,
+          "routed_experts": 32,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 151294016,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 159682624,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 4,
+          "node": 3,
+          "routed_experts": 32,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 151294016,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 159682624,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 4,
+          "node": 0,
+          "routed_experts": 16,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 200753040,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 209141648,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 4,
+          "node": 1,
+          "routed_experts": 16,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 200753040,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 209141648,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 4,
+          "node": 2,
+          "routed_experts": 16,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 200753040,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 209141648,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 4,
+          "node": 3,
+          "routed_experts": 16,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 200753040,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 209141648,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 8,
+          "node": 0,
+          "routed_experts": 4,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 99686144,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 108074752,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 8,
+          "node": 1,
+          "routed_experts": 4,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 99686144,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 108074752,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 8,
+          "node": 2,
+          "routed_experts": 4,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 99686144,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 108074752,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 8,
+          "node": 3,
+          "routed_experts": 4,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 99686144,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 108074752,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 8,
+          "node": 4,
+          "routed_experts": 4,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 99686144,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 108074752,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 8,
+          "node": 5,
+          "routed_experts": 4,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 99686144,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 108074752,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 8,
+          "node": 6,
+          "routed_experts": 4,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 99686144,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 108074752,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 8,
+          "node": 7,
+          "routed_experts": 4,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 99686144,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 108074752,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 8,
+          "node": 0,
+          "routed_experts": 16,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 75778112,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 84166720,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 8,
+          "node": 1,
+          "routed_experts": 16,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 75778112,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 84166720,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 8,
+          "node": 2,
+          "routed_experts": 16,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 75778112,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 84166720,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 8,
+          "node": 3,
+          "routed_experts": 16,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 75778112,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 84166720,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 8,
+          "node": 4,
+          "routed_experts": 16,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 75778112,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 84166720,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 8,
+          "node": 5,
+          "routed_experts": 16,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 75778112,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 84166720,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 8,
+          "node": 6,
+          "routed_experts": 16,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 75778112,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 84166720,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 8,
+          "node": 7,
+          "routed_experts": 16,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 75778112,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 84166720,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 8,
+          "node": 0,
+          "routed_experts": 8,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 106358160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 114746768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 8,
+          "node": 1,
+          "routed_experts": 8,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 106358160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 114746768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 8,
+          "node": 2,
+          "routed_experts": 8,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 106358160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 114746768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 8,
+          "node": 3,
+          "routed_experts": 8,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 106358160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 114746768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 8,
+          "node": 4,
+          "routed_experts": 8,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 106358160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 114746768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 8,
+          "node": 5,
+          "routed_experts": 8,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 106358160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 114746768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 8,
+          "node": 6,
+          "routed_experts": 8,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 106358160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 114746768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 8,
+          "node": 7,
+          "routed_experts": 8,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 106358160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 114746768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 0,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 1,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 2,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 3,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 4,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 5,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 6,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 7,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 8,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 9,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 10,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 11,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 12,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 13,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 14,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "gpt_oss_20b",
+          "dies": 16,
+          "node": 15,
+          "routed_experts": 2,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 49889216,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 58277824,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 0,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 1,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 2,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 3,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 4,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 5,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 6,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 7,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 8,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 9,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 10,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 11,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 12,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 13,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 14,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "dies": 16,
+          "node": 15,
+          "routed_experts": 8,
+          "shared_replicas": 0,
+          "resident_weight_bytes": 38020160,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 46408768,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 0,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 1,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 2,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 3,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 4,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 5,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 6,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 7,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 8,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 9,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 10,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 11,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 12,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 13,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 14,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "dies": 16,
+          "node": 15,
+          "routed_experts": 4,
+          "shared_replicas": 1,
+          "resident_weight_bytes": 59160720,
+          "staging_bytes": 8388608,
+          "allocated_bytes": 67549328,
+          "capacity_bytes": 4294967296,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "batch_weight_read_once_and_MAC",
+      "passed": true,
+      "details": [
+        {
+          "model": "gpt_oss_20b",
+          "batch": 1,
+          "MAC": 24883200,
+          "HB_bytes": 24912956,
+          "time_ps": 50733140
+        },
+        {
+          "model": "gpt_oss_20b",
+          "batch": 4,
+          "MAC": 99532800,
+          "HB_bytes": 24956432,
+          "time_ps": 54059787
+        },
+        {
+          "model": "gpt_oss_20b",
+          "batch": 8,
+          "MAC": 199065600,
+          "HB_bytes": 25014400,
+          "time_ps": 78070572
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "batch": 1,
+          "MAC": 4718592,
+          "HB_bytes": 4730048,
+          "time_ps": 9684914
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "batch": 4,
+          "MAC": 18874368,
+          "HB_bytes": 4760960,
+          "time_ps": 10514521
+        },
+        {
+          "model": "qwen3_30b_a3b",
+          "batch": 8,
+          "MAC": 37748736,
+          "HB_bytes": 4802176,
+          "time_ps": 15215715
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "batch": 1,
+          "MAC": 11796480,
+          "HB_bytes": 11812240,
+          "time_ps": 24007614
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "batch": 4,
+          "MAC": 47185920,
+          "HB_bytes": 11850880,
+          "time_ps": 25476623
+        },
+        {
+          "model": "ernie_21b_a3b",
+          "batch": 8,
+          "MAC": 94371840,
+          "HB_bytes": 11902400,
+          "time_ps": 36628286
+        }
+      ]
+    },
+    {
+      "name": "analytic_serialization_store_forward_parallel_ports",
+      "passed": true,
+      "details": {
+        "virtual_4096B_one_hop_ns": 248.24242424242425,
+        "virtual_two_hops_ns": 496.4848484848485,
+        "integer_one_hop_ps": 248243,
+        "actual_two_hop_ps": 2275602,
+        "parallel_port_completion_ps": [
+          1135301,
+          1137302
+        ]
+      }
+    },
+    {
+      "name": "resource_causality_contributors_multicast_conservation",
+      "passed": true,
+      "details": [
+        {
+          "mode": "layer",
+          "method": "TSV_NORM_P2P_LC",
+          "time_ps": 86177935,
+          "physical_tx_bits": 4663872.0,
+          "peak_buffer_bytes": 68416
+        },
+        {
+          "mode": "layer",
+          "method": "TSV_NORM_MC_LC",
+          "time_ps": 59232811,
+          "physical_tx_bits": 3735936.0,
+          "peak_buffer_bytes": 81976
+        },
+        {
+          "mode": "layer",
+          "method": "TSV_HIGH_MC_LC",
+          "time_ps": 27943115,
+          "physical_tx_bits": 3735936.0,
+          "peak_buffer_bytes": 74240
+        },
+        {
+          "mode": "layer",
+          "method": "THZ_TDMA_P2P_LC",
+          "time_ps": 37589280,
+          "physical_tx_bits": 2912896.0,
+          "peak_buffer_bytes": 94848
+        },
+        {
+          "mode": "layer",
+          "method": "THZ_TDMA_BCAST_LC",
+          "time_ps": 34889280,
+          "physical_tx_bits": 1844160.0,
+          "peak_buffer_bytes": 99072
+        },
+        {
+          "mode": "layer",
+          "method": "THZ_OFDMA_P2P_LC",
+          "time_ps": 38696847,
+          "physical_tx_bits": 3011072.0,
+          "peak_buffer_bytes": 84596
+        },
+        {
+          "mode": "layer",
+          "method": "THZ_OFDMA_BCAST_NO_LC",
+          "time_ps": 38296847,
+          "physical_tx_bits": 1913728.0,
+          "peak_buffer_bytes": 76608
+        },
+        {
+          "mode": "layer",
+          "method": "TOV_OFDMA_BCAST_LC",
+          "time_ps": 38296847,
+          "physical_tx_bits": 1913728.0,
+          "peak_buffer_bytes": 76608
+        },
+        {
+          "mode": "replay",
+          "method": "TSV_NORM_P2P_LC",
+          "time_ps": 64138606,
+          "physical_tx_bits": 4354560.0,
+          "peak_buffer_bytes": 70836
+        },
+        {
+          "mode": "replay",
+          "method": "TSV_NORM_MC_LC",
+          "time_ps": 43347164,
+          "physical_tx_bits": 3426624.0,
+          "peak_buffer_bytes": 131604
+        },
+        {
+          "mode": "replay",
+          "method": "TSV_HIGH_MC_LC",
+          "time_ps": 1669045,
+          "physical_tx_bits": 3426624.0,
+          "peak_buffer_bytes": 127364
+        },
+        {
+          "mode": "replay",
+          "method": "THZ_TDMA_P2P_LC",
+          "time_ps": 22407285,
+          "physical_tx_bits": 2534080.0,
+          "peak_buffer_bytes": 80156
+        },
+        {
+          "mode": "replay",
+          "method": "THZ_TDMA_BCAST_LC",
+          "time_ps": 13969197,
+          "physical_tx_bits": 1471744.0,
+          "peak_buffer_bytes": 43820
+        },
+        {
+          "mode": "replay",
+          "method": "THZ_OFDMA_P2P_LC",
+          "time_ps": 28635177,
+          "physical_tx_bits": 2631680.0,
+          "peak_buffer_bytes": 80156
+        },
+        {
+          "mode": "replay",
+          "method": "THZ_OFDMA_BCAST_NO_LC",
+          "time_ps": 17161975,
+          "physical_tx_bits": 1518144.0,
+          "peak_buffer_bytes": 44132
+        },
+        {
+          "mode": "replay",
+          "method": "TOV_OFDMA_BCAST_LC",
+          "time_ps": 17161975,
+          "physical_tx_bits": 1518144.0,
+          "peak_buffer_bytes": 44132
+        }
+      ]
+    },
+    {
+      "name": "negative_controls_and_bottleneck_migration",
+      "passed": true,
+      "details": {
+        "single_destination_zero_savings": true,
+        "fast_network_nonzero_layer_ps": 2493133,
+        "original_ps": 17908549,
+        "faster_compute_ps": 7385822,
+        "nmp_busy_fraction_before": 0.5869091348495068,
+        "nmp_busy_fraction_after": 0.015303374492372008
+      }
+    },
+    {
+      "name": "energy_activity_interval_union",
+      "passed": true,
+      "details": {
+        "overlapping_RX_RUs_counted_once_per_domain": true,
+        "future_pipeline_tail_clipping": true
+      }
+    },
+    {
+      "name": "fp32_math_FP8_reference_shared_GPT_activation",
+      "passed": true,
+      "details": {
+        "tests": [
+          {
+            "rule": "gpt_oss_swiglu",
+            "fp32_equivalent": true,
+            "fp8_LC": {
+              "relative_l2": 0.04171318615401584,
+              "cosine": 0.9991301397658464
+            },
+            "fp8_NO_LC": {
+              "relative_l2": 0.0433270043012319,
+              "cosine": 0.9990621198397187
+            }
+          },
+          {
+            "rule": "silu_gate",
+            "fp32_equivalent": true,
+            "fp8_LC": {
+              "relative_l2": 0.06000401937045516,
+              "cosine": 0.998198663655292
+            },
+            "fp8_NO_LC": {
+              "relative_l2": 0.05949553603853041,
+              "cosine": 0.9982308091318092
+            }
+          }
+        ],
+        "ERNIE_fused_split": true,
+        "nearest_even": true,
+        "finite_max": 448,
+        "zero_scale": 1,
+        "scope": "random d=32 h=16 tokens=16; not pretrained-model accuracy"
+      }
+    },
+    {
+      "name": "deterministic_replay_and_decode_round_accounting",
+      "passed": true,
+      "details": {
+        "result_sha256": "f271c807d0cec9cd88cc535ace598186562fc60624451dd9402b8403ddf35ac7",
+        "exact_repeat": true,
+        "decode_rounds": 3
+      }
+    }
+  ],
+  "independent_audit": {
+    "passed": true,
+    "independently_checked_physical_runs": 1296,
+    "cohorts": 21312,
+    "tokens": 1210600,
+    "checks": [
+      "analytic packet bytes per kind and hop",
+      "every broadcast receiver and TSV multicast outlet",
+      "complete-packet endpoint DMA bytes",
+      "exact model MAC",
+      "batch token conservation",
+      "owner/contributor and token uniqueness",
+      "per-Die NMP/DMA busy time bounds",
+      "per-domain data/control bit conservation",
+      "round energy increments"
+    ],
+    "deterministic_full_cohort_replays": [
+      {
+        "run_id": "m0552",
+        "cohort": 0,
+        "result_sha256": "b8e78daec2d44dd58191ce62c0c87bbac6a34ecf464640fdf866b13a6f240462"
+      },
+      {
+        "run_id": "m0553",
+        "cohort": 0,
+        "result_sha256": "314f6130ecd3993adabc82e71911db697e12a48a4e8a5c805b0c9639717ddb3c"
+      },
+      {
+        "run_id": "m0554",
+        "cohort": 0,
+        "result_sha256": "bff6d6cb0d105a3958effbbe26c63da687dde4834f9032695f173edf3e9c2cc8"
+      },
+      {
+        "run_id": "m0555",
+        "cohort": 0,
+        "result_sha256": "0800a8767f475d5d5ded56fc5548fe80d52c7db1a7e618425f7afca744f1f414"
+      },
+      {
+        "run_id": "m0556",
+        "cohort": 0,
+        "result_sha256": "19d6dc9a1fce78787de03f883f3dd622d627c6061dec29f53e0d15324e193082"
+      },
+      {
+        "run_id": "m0557",
+        "cohort": 0,
+        "result_sha256": "411220f0bd822b72366a4fd7a1bbde53aada8cd37d1beed9b3c7db56d03a7f7c"
+      },
+      {
+        "run_id": "m0558",
+        "cohort": 0,
+        "result_sha256": "d2efbf8741517f6f09db0482b68c383df34977fcf6f10b5b5681727fc68d5222"
+      },
+      {
+        "run_id": "m0559",
+        "cohort": 0,
+        "result_sha256": "a24c3266c8f3a77650b96a024196680cbbaa82727840e41064674fece75c946e"
+      },
+      {
+        "run_id": "m1128",
+        "cohort": 0,
+        "result_sha256": "702375ee80baa0b55b698432683f6024b0803bdf83a2fa1f7ee4ec26edbba266"
+      },
+      {
+        "run_id": "m1129",
+        "cohort": 0,
+        "result_sha256": "2a0e05abd070e579262f854acc681b161688490beff12a6a409bbac3af9e45e2"
+      },
+      {
+        "run_id": "m1130",
+        "cohort": 0,
+        "result_sha256": "5a9c32d4cf69f7b6778aa4818e9c224796f8238857e36aac1ce5d6e0ec184f3a"
+      },
+      {
+        "run_id": "m1131",
+        "cohort": 0,
+        "result_sha256": "4c3e0a2755568835fd446bc665a9f4e9a9202c98774345b5687f3147109ee761"
+      },
+      {
+        "run_id": "m1132",
+        "cohort": 0,
+        "result_sha256": "828c639c397f285f7a24f1bc28105452f1c5cb5664263abc1d6c048d63906a60"
+      },
+      {
+        "run_id": "m1133",
+        "cohort": 0,
+        "result_sha256": "d064491143895f81ac0fa373122bd1fde673b21621b7c74fadf840ee0ef5468c"
+      },
+      {
+        "run_id": "m1134",
+        "cohort": 0,
+        "result_sha256": "1f296a2615cfa8f0fbd24fbed36af5a0dc050bb07916055a872e62f8d7ac17da"
+      },
+      {
+        "run_id": "m1135",
+        "cohort": 0,
+        "result_sha256": "35564727543f844545cb856e20c04837758e58fe715a1289e4c1bdba1d58d95b"
+      }
+    ]
+  },
+  "full_experiment": {
+    "passed": true,
+    "planned_records": 1524,
+    "completed_records": 1524,
+    "main_layer_runs": 576,
+    "main_replay_runs": 576,
+    "sensitivity_records": 336,
+    "energy_ledger_records": 36,
+    "physical_runs": 1296,
+    "reused_timing_records": 192,
+    "all_tokens_completed_and_contributors_checked": 1210600,
+    "total_heap_events": 140520868,
+    "peak_staging_bytes": 502138,
+    "staging_limit_bytes": 8388608,
+    "fairness_groups_checked": 1296,
+    "raw_csv_rows": {
+      "('main', 'layer')": 171072,
+      "('sensitivity', 'layer')": 11088,
+      "('main', 'replay')": 10368,
+      "('sensitivity', 'replay')": 672
+    },
+    "expert_batch_histogram": {
+      "1": 2570819,
+      "2": 236453,
+      "3": 73217,
+      "4": 31390,
+      "5": 12939,
+      "6": 8521,
+      "7": 5829,
+      "8": 6469
+    },
+    "decode_round_sums_checked": true,
+    "energy_increment_sums_checked": true,
+    "per_service_bit_tolerance": 1e-06,
+    "zero_remote_exclusions": 0
+  },
+  "bootstrap": {
+    "paired": true,
+    "strata": "seed, then whole cohort; shared draws for same phase/B across models, profiles, methods",
+    "samples": 2000,
+    "seed": 2026,
+    "token_level_iid": false
+  }
+}

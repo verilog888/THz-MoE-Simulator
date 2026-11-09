@@ -1,0 +1,11 @@
+{
+  "started_at": "2026-11-09T13:21:12+08:00",
+  "finished_at": "2026-11-09T13:26:30+08:00",
+  "wall_seconds": 317.1795357049998,
+  "workers": 4,
+  "physical_runs": 1296,
+  "plan_records": 1488,
+  "engine_hash": "2d008ddcdf75e5b12aa7dd58605821b0fd857055cdc9ebb733dfa4f384d21c05",
+  "completed": 1488,
+  "failed": 0
+}

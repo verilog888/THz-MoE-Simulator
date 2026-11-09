@@ -1,0 +1,71 @@
+[
+  {
+    "repo": "openai/gpt-oss-20b",
+    "revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
+    "files": [
+      "config.json",
+      "special_tokens_map.json",
+      "tokenizer.json",
+      "tokenizer_config.json"
+    ],
+    "id": "gpt_oss_20b",
+    "sha256": {
+      "config.json": "3a2a26ded679375b7928ddeca59764df7cea83220c1961035f6d6e232659e9ce",
+      "special_tokens_map.json": "dd5e191d20c12d2fee1da5bae14ca1db0f5f4215300af691f23cdee97120a293",
+      "tokenizer.json": "0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3",
+      "tokenizer_config.json": "9279e942392b742d633c7adbb89ebe002c98399db8926a7af5125c726f404070"
+    }
+  },
+  {
+    "repo": "Qwen/Qwen3-30B-A3B",
+    "revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+    "files": [
+      "config.json",
+      "merges.txt",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "vocab.json"
+    ],
+    "id": "qwen3_30b_a3b",
+    "sha256": {
+      "config.json": "2850ddb3bf7aecad20b611e2d44f3077fc8193f4827c93beddd4c02ad63c2297",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+  },
+  {
+    "repo": "baidu/ERNIE-4.5-21B-A3B-PT",
+    "revision": "87db95487941cb39592ee0abca3b9155a6d19c5c",
+    "files": [
+      "added_tokens.json",
+      "config.json",
+      "special_tokens_map.json",
+      "tokenizer.json",
+      "tokenizer.model",
+      "tokenizer_config.json"
+    ],
+    "id": "ernie_21b_a3b",
+    "sha256": {
+      "added_tokens.json": "08ab98258652553a53455b164c258488ce840322f0949877676d962a1d958cad",
+      "config.json": "7383c7387390746c1fa0327f8cab3d5c6b078a60bbf0841d4f42277eece5a5f6",
+      "special_tokens_map.json": "d96a4630d4a8bbddabc3e1ad272a0e6a42f37a515239c8d25626d09154d7603b",
+      "tokenizer.json": "4e5b4d49475d27c7ef7a61eea2d675f9cc013e91e3ddb5e06d964f5027c1814a",
+      "tokenizer.model": "34ef7db83df785924fb83d7b887b6e822a031c56e15cff40aaf9b982988180df",
+      "tokenizer_config.json": "e9bc80502f0e997cc36b4d1f2bd025a3ca549a108736f7a1cef014229db0a82d"
+    }
+  },
+  {
+    "repo": "MohamedRashad/ChatGPT-prompts",
+    "revision": "6c258c8c477a799c95246cca4cf8bf734d3c36ad",
+    "files": [
+      "train.csv"
+    ],
+    "repo_type": "dataset",
+    "id": "dataset",
+    "sha256": {
+      "train.csv": "4488c4093ee42953b556ffad71e5cb2cd03de85eca0739c2643618e4928bfae7"
+    }
+  }
+]
